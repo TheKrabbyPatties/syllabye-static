@@ -13,3 +13,8 @@ async function about(){
     const responseText = await response.text()
     console.log(responseText)
 }
+
+function generatePdf() {
+    var element = document.getElementById('syllabus');
+    html2pdf(element);
+}

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Basic Webpage</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="index.js"></script>
 </head>
 <body>
 
@@ -22,10 +24,14 @@
     </ul>
 </nav>
 
-<div class="container">
+<div class="container" id="syllabus">
     <h2>Create Syllabus</h2>
     <p>This is where the user can create a syllabus</p>
 </div>
+<div>
+    <input id="download-button" type="button" onclick="generatePdf()" value="Generate PDF">
+</div>
+
 
 </body>
 </html>
