@@ -2,12 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #dcdcd7;
+    color: #242122;
 }
 
 header {
-    background-color: grey;
-    color: white;
+    background-color: #c22033;
+    color: #ffffff;
     padding: 10px 0;
     text-align: center;
 }
@@ -18,33 +19,31 @@ header {
     padding: 20px;
 }
 
-p {
-    line-height: 1.6;
-}
-
 nav {
     margin-top: -16px;
-    background-color: rgb(110, 110, 110);
+    background-color: #940731;
 }
 
 nav ul {
     list-style-type: none;
-    padding: 8px;
     text-align: center;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    display:inline-flex;
 }
 
-nav ul li a {
+nav ul li a, nav ul li button {
     text-decoration: none;
+    font-size: 16px;
     color: white;
     padding: 8px 50px;
-    background-color: rgb(110, 110, 110);
+    border: 0px;
+    background-color: #940731;
 }
 
-nav ul li a:hover {
-    background-color: rgb(146, 146, 146);
+nav ul li a:hover, nav ul li button:hover {
+    background-color: #c22033;
+    transition: 0.3s;
+    box-shadow: 0px 0px 2px 1px #9c9b9d inset;
 }
