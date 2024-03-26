@@ -1,4 +1,4 @@
-const url = "http://localhost:3000"
+const url = "https://syllabye-server.azurewebsites.net"
 
 async function ping(){
     const fetchString = url + "/api/ping"
