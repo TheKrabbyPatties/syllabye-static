@@ -56,3 +56,13 @@ nav ul li a:hover, nav ul li button:hover {
     color: #ffffff;
     font-weight: bold;
  }
+
+
+ .link a {
+    color: #7d7c7d;
+    text-decoration: none;
+}
+
+.link a:hover {
+    color: #c22033;
+}
