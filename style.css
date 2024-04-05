@@ -85,4 +85,33 @@ nav ul li a:hover, nav ul li button:hover {
 @font-face {
     font-family: 'BOOKOS';
     src: url('fonts/BOOKOS.TTF') format('truetype');
+ }
+
+
+.link a {
+    color: #7d7c7d;
+    text-decoration: none;
+}
+
+.link a:hover {
+    color: #c22033;
+}
+.small-container {
+    display: flex;
+    align-items: center; 
+    background-color:#242122;
+    width: 100%;
+    padding: 20px;
+    font-size: medium; 
+    color: #ffffff; 
+    overflow: hidden; 
+}
+
+.small-container img { 
+    margin-right: 20px; 
+    max-width: 350px; 
+    max-height: 200px;
+    width: auto; 
+    height: auto; 
+    object-fit: cover; 
 }
