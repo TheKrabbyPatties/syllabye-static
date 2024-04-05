@@ -18,3 +18,16 @@ function generatePdf() {
     var element = document.getElementById('syllabus');
     html2pdf(element);
 }
+
+var changeFontFamily = function (fontstyle) {
+    document.getElementById("syllabus").style.fontFamily = fontstyle.value;
+}
+
+var changeFontSize = function (fontsize) {
+    document.getElementById("syllabus").style.fontSize = fontsize.value;
+}
+
+function changeDeptBanner(elem) {
+    var image = document.getElementById("banner-img");
+    image.src = elem.value;
+}
