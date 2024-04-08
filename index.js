@@ -16,16 +16,13 @@ async function about(){
 
 function generatePdf() {
     var element = document.getElementById('syllabus');
-    html2pdf(element, calendarTable);
-}
-
-function calendarTable(){
     var gridCells = document.querySelectorAll('td[contenteditable="true"]');
     gridCells.forEach(cell => {
       element.innerHTML += `<p>${cell.innerText}</p>`; 
     });
-
+    html2pdf(element);
 }
+
 
 var changeFontFamily = function (fontstyle) {
     document.getElementById("syllabus").style.fontFamily = fontstyle.value;
