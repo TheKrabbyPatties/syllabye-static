@@ -16,7 +16,7 @@ async function about(){
 
 function generatePdf() {
     var element = document.getElementById('syllabus');
-    html2pdf(element);
+    html2pdf(element, calendarTable);
 }
 
 function calendarTable(){
@@ -24,7 +24,7 @@ function calendarTable(){
     gridCells.forEach(cell => {
       element.innerHTML += `<p>${cell.innerText}</p>`; 
     });
-    
+
 }
 
 var changeFontFamily = function (fontstyle) {
