@@ -14,12 +14,26 @@ async function about(){
     console.log(responseText)
 }
 
+// function generatePdf() {
+//     var element = document.getElementById('syllabus');
+//     var gridCells = document.querySelectorAll('td[contenteditable="true"]');
+//     gridCells.forEach(cell => {
+//       element.innerHTML += `<p>${cell.innerText}</p>`; 
+//     });
+//     html2pdf(element);
+// }
+function generateGridCells() {
+    var gridCells = '';
+    document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
+        gridCells += `<p>${cell.innerText}</p>`;
+    });
+    return gridCells;
+}
+
 function generatePdf() {
     var element = document.getElementById('syllabus');
-    var gridCells = document.querySelectorAll('td[contenteditable="true"]');
-    gridCells.forEach(cell => {
-      element.innerHTML += `<p>${cell.innerText}</p>`; 
-    });
+    var gridCells = generateGridCells();
+    element.innerHTML += gridCells;
     html2pdf(element);
 }
 
