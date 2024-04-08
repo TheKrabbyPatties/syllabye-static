@@ -11,7 +11,7 @@
 <body>
 
 <header>
-    <h1>Welcome to My Basic Webpage</h1>
+    <h1>Syllabye</h1>
     
 </header>
 
@@ -24,14 +24,182 @@
     </ul>
 </nav>
 
-<div class="container" id="syllabus">
+<div class="container">
     <h2>Create Syllabus</h2>
-    <p>This is where the user can create a syllabus</p>
-</div>
-<div>
-    <input id="download-button" type="button" onclick="generatePdf()" value="Generate PDF">
+    <p>Create a syllabus in PDF form by clicking the button "Generate PDF"</p>
 </div>
 
+<div class="custom-options">
+    <label>Choose your banner</label><br>
+    <select id="department-banner" onchange="changeDeptBanner(this)">
+        <option>-Select a banner-</option>
+        <option value="banners/lewis-banner.png">Standard Banner</option>
+        <option value="banners/music-banner.png">Music Dept. Banner</option>
+        <option value="banners/theology-banner.jpg">Theology Dept. Banner</option>
+    </select><br><br>
+
+    <label>Choose a font</label><br>
+    <select id="font-family" onchange="changeFontFamily(this)">
+        <option>-Select a font-</option>
+        <option value='Arial'>Arial</option>  <!--done-->
+        <option value='BOOKOS'>Bookman Old Style</option>
+        <option value='Calibri'>Calibri</option> <!--done-->
+        <option value='Georgia'>Georgia</option> <!--done-->
+        <option value='HelveticaNeue'>Helvetica Neue</option> <!--done-->
+        <option value='LibreBaskerville-Regular'>Libre Baskerville</option> <!--done-->
+        <option value='Merriweather-Regular'>Merriweather</option> <!--done-->
+        <option value="Sabon">Sabon</option> <!--done-->
+        <option value='Times New Roman'>Times New Roman</option> <!--done-->
+        <option value='Wingdings-Regular'>Wingdings</option> <!--done-->
+    </select><br><br>
+
+    <label>Choose a font size</label><br>
+    <select id="font-size" onchange="changeFontSize(this)">
+        <option>-Select a font size-</option>
+        <option value="8px">8</option>
+        <option value="9px">9</option>
+        <option value="10px">10</option>
+        <option value="11px">11</option>
+        <option value="12px">12</option>
+        <option value="14px">14</option>
+        <option value="16px">16</option>
+        <option value="18px">18</option>
+        <option value="20px">20</option>
+    </select>
+</div><br>
+
+<div id="syllabus">
+    <div class="banner">
+        <img id="banner-img" src='banners/lewis-banner.png'>
+    </div>
+
+    <div class="instructor-info">
+        <p>Eric Pogue</p>
+        <p>Office Hours: MWF 9-10am</p>   
+            
+        
+    </div>
+    <div class="html2pdf__page-break"></div>
+    <div class="course-outcomes">
+        <p>Learn Software Engineering</p>
+        <p>Learn about agile development</p>
+    </div>
+
+    <div>
+        <h1>Semester Calendar</h1>
+
+        <table id="editableGrid">
+            <tr>
+                <th>Week</th>
+                <th>Topic</th>
+                <th>Readings</th>
+                <th>Assignments</th>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 1</td>
+                <td contenteditable="true">Click to edit</td>
+                <td contenteditable="true">Click to edit</td>
+                <td contenteditable="true">Click to edit</td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 2</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 3</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 4</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 5</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 6</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 7</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 8</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 9</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 10</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 11</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 12</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 13</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 14</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 15</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td contenteditable="false">Week 16</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+
+
+          </table>
+
+    </div>
+</div>
+<div>
+    <p style="margin-left:110px;"><input id="download-button" type="button" onclick="generatePdf()" value="Generate PDF"></p>
+</div>
 
 </body>
 </html>

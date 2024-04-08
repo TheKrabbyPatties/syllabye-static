@@ -55,4 +55,86 @@ nav ul li a:hover, nav ul li button:hover {
     margin-bottom: 5px;
     color: #ffffff;
     font-weight: bold;
+}
+
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('fonts/HelveticaNeue.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'LibreBaskerville-Regular';
+    src: url('fonts/LibreBaskerville-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Merriweather-Regular';
+    src: url('fonts/Merriweather-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Wingdings-Regular';
+    src: url('fonts/Wingdings-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Sabon';
+    src: url('fonts/Sabon.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BOOKOS';
+    src: url('fonts/BOOKOS.TTF') format('truetype');
  }
+
+
+.link a {
+    color: #7d7c7d;
+    text-decoration: none;
+}
+
+.link a:hover {
+    color: #c22033;
+}
+.small-container {
+    display: flex;
+    align-items: center; 
+    background-color:#242122;
+    width: 100%;
+    padding: 20px;
+    font-size: medium; 
+    color: #ffffff; 
+    overflow: hidden; 
+}
+
+.small-container img { 
+    margin-right: 20px; 
+    max-width: 350px; 
+    max-height: 200px;
+    width: auto; 
+    height: auto; 
+    object-fit: cover; 
+}
+
+/* this is all for the calendar section*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  td {
+    cursor: pointer;
+  }
+  
+  .editing {
+    background-color:#bcbcbc;
+  }
