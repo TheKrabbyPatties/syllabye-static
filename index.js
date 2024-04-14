@@ -23,18 +23,18 @@ async function about(){
 //     html2pdf(element);
 // }
 function generateGridCells() {
-    var gridCells = '';
+    var gridCells = [];
     document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
-        gridCells += `<p>${cell.innerText}</p>`;
+        gridCells.push(`<p>${cell.innerText}</p>`);
     });
-    return gridCells;
+    return gridCells.join('');
 }
 
 function generatePdf() {
     var element = document.getElementById('syllabus');
     var gridCells = generateGridCells();
     element.innerHTML += gridCells;
-    html2pdf(element);
+    html2pdf().from(element).save();
 }
 
 
