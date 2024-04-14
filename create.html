@@ -92,13 +92,20 @@
     <br>
     <br>
     </div>
-    <div class="html2pdf__page-break"></div>
+    <!-- <div class="html2pdf__page-break"></div> -->
     <div class="Course-Outcomes">
-        <h1>Course Outcomes</h1>
+        <h1 id="courseHeader">Course Outcomes</h1>
         <br>
-        <p>Learn Software Engineering</p>
+        <p>Course Name, Number, and Section:<input type="text" id="courseName" onchange="courseOutcomes()"></p>
         <br>
-        <p>Learn about agile development</p>
+        <p>Course Credit Hours:<input type="text" id="courseCred" onchange="courseOutcomes()"></p>
+        <br>
+        <textarea>Course Description:<input type="text" id="courseDesc" onchange="courseOutcomes()"></textarea>
+        <br>
+        <p>Course Meeting Times, Days, and Location:<input type="courseMeet" id="name" onchange="courseOutcomes()"></p>
+        <br>
+        <textarea>Student Learning Outcomes<input type="text" id="courseLearn" onchange="courseOutcomes()"></textarea>
+        <br>
     </div>
     <br>
     <br>
@@ -225,5 +232,6 @@
 <div>
     <p style="margin-left:110px;"><input id="download-button" type="button" onclick="generatePdf()" value="Generate PDF"></p>
 </div>
+<!-- <div class="html2pdf__page-break"></div> -->
 </body>
 </html>
