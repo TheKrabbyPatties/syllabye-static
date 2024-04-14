@@ -52,23 +52,6 @@ function generatePdf() {
     var element = document.getElementById('syllabus');
     var gridCells = generateGridCells();
     element.innerHTML += gridCells;
-
-        // Get the course outcomes data
-        var courseOutcomesData = courseOutcomes();
-
-        // Create the HTML for the course outcomes section
-        var courseOutcomesHTML = `
-            <h1>Course Outcomes</h1>
-            <p><strong>Course Name, Number, and Section:</strong> ${courseOutcomesData.courseName}</p>
-            <p><strong>Course Credit Hours:</strong> ${courseOutcomesData.courseCred}</p>
-            <p><strong>Course Description:</strong> ${courseOutcomesData.courseDesc}</p>
-            <p><strong>Course Meeting Times, Days, and Location:</strong> ${courseOutcomesData.courseMeet}</p>
-            <p><strong>Student Learning Outcomes:</strong> ${courseOutcomesData.courseLearn}</p>
-        `;
-    
-        // Append the grid cells and course outcomes HTML to the syllabus element
-        element.innerHTML += gridCells + courseOutcomesHTML;
-    // courseOutcomes();
     html2pdf().from(element).save();
 }
 
