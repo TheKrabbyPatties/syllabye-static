@@ -52,6 +52,7 @@ function generatePdf() {
     var element = document.getElementById('syllabus');
     var gridCells = generateGridCells();
     element.innerHTML += gridCells;
+    element.innerHTML += courseOutcomes(); 
     html2pdf().from(element).save();
 }
 
