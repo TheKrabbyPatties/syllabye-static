@@ -53,7 +53,7 @@ function generatePdf() {
     var gridCells = generateGridCells();
     element.innerHTML += gridCells;
     element.innerHTML += courseOutcomes(); 
-    html2pdf().from(element).save();
+    html2pdf('syllabus').from(element).save();
 }
 
 
@@ -70,22 +70,22 @@ function changeDeptBanner(elem) {
     image.src = elem.value;
 }
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const cells = document.querySelectorAll('td');
+document.addEventListener('DOMContentLoaded', function() {
+    const cells = document.querySelectorAll('td');
   
-//     cells.forEach(cell => {
-//       cell.addEventListener('click', function() {
-//         if (!cell.classList.contains('editing')) {
-//           cell.classList.add('editing');
-//           cell.setAttribute('contenteditable', true);
-//           cell.innerHTML = '';
-//           cell.focus();
-//         }
-//       });
+    cells.forEach(cell => {
+      cell.addEventListener('click', function() {
+        if (!cell.classList.contains('editing')) {
+          cell.classList.add('editing');
+          cell.setAttribute('contenteditable', true);
+          cell.innerHTML = '';
+          cell.focus();
+        }
+      });
   
-//       cell.addEventListener('blur', function() {
-//         cell.classList.remove('editing');
-//         cell.removeAttribute('contenteditable');
-//       });
-//     });
-//   });
+      cell.addEventListener('blur', function() {
+        cell.classList.remove('editing');
+        cell.removeAttribute('contenteditable');
+      });
+    });
+  });
