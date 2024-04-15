@@ -36,7 +36,7 @@ function changeDeptBanner(elem) {
     var image = document.getElementById("banner-img");
     image.src = elem.value;
 }
-
+/*
 document.addEventListener('DOMContentLoaded', function() {
     const cells = document.querySelectorAll('td');
   
@@ -56,3 +56,4 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+  */

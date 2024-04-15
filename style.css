@@ -116,25 +116,34 @@ nav ul li a:hover, nav ul li button:hover {
     object-fit: cover; 
 }
 
+table.table1 {
+    border-collapse: collapse;
+    width: 30%;
+    margin-left: 5%;
+}
+
+table.table1, td.table1 {
+    
+}
 /* this is all for the calendar section*/
 table {
     border-collapse: collapse;
     width: 100%;
-  }
-  
-  table, th, td {
-    border: 1px solid black;
-  }
-  
-  th, td {
-    padding: 8px;
-    text-align: left;
-  }
-  
-  td {
-    cursor: pointer;
-  }
-  
-  .editing {
-    background-color:#bcbcbc;
-  }
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+td {
+  cursor: pointer;
+}
+
+.editing {
+  background-color:#bcbcbc;
+}
