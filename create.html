@@ -26,7 +26,7 @@
 
 <div class="container">
     <h2>Create Syllabus</h2>
-    <p>Create a syllabus in PDF form by clicking the button "Generate PDF"</p>
+    <p>Create a syllabus in PDF form by clicking the button "Generate PDF" at the bottom</p>
 </div>
 
 <div class="custom-options">
@@ -66,29 +66,63 @@
         <option value="18px">18</option>
         <option value="20px">20</option>
     </select>
-</div><br>
-
+</div>
+<br>
+<br>
 <div id="syllabus">
     <div class="banner">
         <img id="banner-img" src='banners/lewis-banner.png'>
     </div>
-
-    <div class="instructor-info">
-        <p>Eric Pogue</p>
-        <p>Office Hours: MWF 9-10am</p>   
-            
-        
+    <br>
+    <br>
+    <div class="Instructor-Info">
+        <h1>Instructor Info</h1>
+        <br>
+        <p>Professor Name:<input type="text" onchange="myFunction()"></p>
+        <br>
+        <p>Office Hours:<input type="text" onchange="myFunction()"></p>
+        <br>
+        <p>Lewis Office Location:<input type="text" onchange="myFunction()"></p>
+        <br>
+        <p>Email:<input type="text" onchange="myFunction()"></p>
+        <br>
+        <p>Personal Mobile Phone Number:<input type="text" onchange="myFunction()"></p>
+        <br>
+        <p>Personal Zoom Link:<input type="text" onchange="myFunction()"></p>
+    <br>
+    <br>
     </div>
-    <div class="html2pdf__page-break"></div>
-    <div class="course-outcomes">
-        <p>Learn Software Engineering</p>
-        <p>Learn about agile development</p>
+    <!-- <div class="html2pdf__page-break"></div> -->
+    <div class="Course-Outcomes">
+        <h1 id="courseHeader">Course Outcomes</h1>
+        <br>
+        <p>Course Name, Number, and Section:<input type="text" id="courseName" onchange="courseOutcomes()"></p>
+        <br>
+        <p>Course Credit Hours:<input type="text" id="courseCred" onchange="courseOutcomes()"></p>
+        <br>
+        <textarea>Course Description:<input type="text" id="courseDesc" onchange="courseOutcomes()"></textarea>
+        <br>
+        <p>Course Meeting Times, Days, and Location:<input type="courseMeet" id="name" onchange="courseOutcomes()"></p>
+        <br>
+        <textarea>Student Learning Outcomes<input type="text" id="courseLearn" onchange="courseOutcomes()"></textarea>
+        <br>
     </div>
-
+    <br>
+    <br>
+    <div class ="Course-Materials">
+        <h1>Course Materials</h1>
+        <br>
+        <p>Textbooks:<input type="text" onchange="myFunction()"></p>
+        <br>
+        <p>Suppliment Readings, Videos and Online Materials:<input type="text" onchange="myFunction()"></p>
+        <br>
+        <p>Other materials and costs:<input type="text" onchange="myFunction()"></p>
+    </div>
+    <br>
+    <br>
     <div>
         <h1>Semester Calendar</h1>
-
-        <table id="editableGrid">
+        <table id="editableGrid" onchange="generateGridCells()">
             <tr>
                 <th>Week</th>
                 <th>Topic</th>
@@ -192,9 +226,7 @@
                 <td contenteditable="true"></td>
             </tr>
 
-
           </table>
-
     </div>
 
     <div>
@@ -265,6 +297,6 @@
 <div>
     <p style="margin-left:110px;"><input id="download-button" type="button" onclick="generatePdf()" value="Generate PDF"></p>
 </div>
-
+<!-- <div class="html2pdf__page-break"></div> -->
 </body>
 </html>
