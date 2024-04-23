@@ -30,96 +30,119 @@
 </div>
 
 <div class="custom-options">
-    <label>Choose your banner</label><br>
-    <select id="department-banner" onchange="changeDeptBanner(this)">
-        <option>-Select a banner-</option>
-        <option value="banners/lewis-banner.png">Standard Banner</option>
-        <option value="banners/music-banner.png">Music Dept. Banner</option>
-        <option value="banners/theology-banner.jpg">Theology Dept. Banner</option>
-    </select><br><br>
+<h1>Customization Options</h1><br>
+<label for="banner">Choose your banner</label><br>
+<select id="department-banner" name="banner" onchange="changeDeptBanner(this)">
+    <option>-Select a banner-</option>
+    <option value="banners/lewis-banner.png">Standard Banner</option>
+    <option value="banners/music-banner.png">Music Dept. Banner</option>
+    <option value="banners/theology-banner.jpg">Theology Dept. Banner</option>
+</select><br><br>
 
-    <label>Choose a font</label><br>
-    <select id="font-family" onchange="changeFontFamily(this)">
-        <option>-Select a font-</option>
-        <option value='Arial'>Arial</option>  <!--done-->
-        <option value='BOOKOS'>Bookman Old Style</option>
-        <option value='Calibri'>Calibri</option> <!--done-->
-        <option value='Georgia'>Georgia</option> <!--done-->
-        <option value='HelveticaNeue'>Helvetica Neue</option> <!--done-->
-        <option value='LibreBaskerville-Regular'>Libre Baskerville</option> <!--done-->
-        <option value='Merriweather-Regular'>Merriweather</option> <!--done-->
-        <option value="Sabon">Sabon</option> <!--done-->
-        <option value='Times New Roman'>Times New Roman</option> <!--done-->
-        <option value='Wingdings-Regular'>Wingdings</option> <!--done-->
-    </select><br><br>
+<label for="font-family">Choose a font</label><br>
+<select id="font-family" name="font-family" onchange="changeFontFamily(this)">
+    <option>-Select a font-</option>
+    <option value='Arial'>Arial</option>  <!--done-->
+    <option value='BOOKOS'>Bookman Old Style</option>
+    <option value='Calibri'>Calibri</option> <!--done-->
+    <option value='Georgia'>Georgia</option> <!--done-->
+    <option value='HelveticaNeue'>Helvetica Neue</option> <!--done-->
+    <option value='LibreBaskerville-Regular'>Libre Baskerville</option> <!--done-->
+    <option value='Merriweather-Regular'>Merriweather</option> <!--done-->
+    <option value="Sabon">Sabon</option> <!--done-->
+    <option value='Times New Roman'>Times New Roman</option> <!--done-->
+    <option value='Wingdings-Regular'>Wingdings</option> <!--done-->
+</select><br><br>
 
-    <label>Choose a font size</label><br>
-    <select id="font-size" onchange="changeFontSize(this)">
-        <option>-Select a font size-</option>
-        <option value="8px">8</option>
-        <option value="9px">9</option>
-        <option value="10px">10</option>
-        <option value="11px">11</option>
-        <option value="12px">12</option>
-        <option value="14px">14</option>
-        <option value="16px">16</option>
-        <option value="18px">18</option>
-        <option value="20px">20</option>
-    </select>
-</div>
-<br>
-<br>
-<div id="syllabus">
+    <label for="font-size">Choose a font size</label><br>
+    <select id="font-size" name="font-size" onchange="changeFontSize(this)">
+    <option>-Select a font size-</option>
+    <option value="8px">8</option>
+    <option value="9px">9</option>
+    <option value="10px">10</option>
+    <option value="11px">11</option>
+    <option value="12px">12</option>
+    <option value="14px">14</option>
+    <option value="16px">16</option>
+    <option value="18px">18</option>
+    <option value="20px">20</option>
+</select>
+
     <div class="banner">
         <img id="banner-img" src='banners/lewis-banner.png'>
     </div>
-    <br>
-    <br>
-    <div class="Instructor-Info">
-        <h1>Instructor Info</h1>
-        <br>
-        <p>Professor Name:<input type="text" onchange="myFunction()"></p>
-        <br>
-        <p>Office Hours:<input type="text" onchange="myFunction()"></p>
-        <br>
-        <p>Lewis Office Location:<input type="text" onchange="myFunction()"></p>
-        <br>
-        <p>Email:<input type="text" onchange="myFunction()"></p>
-        <br>
-        <p>Personal Mobile Phone Number:<input type="text" onchange="myFunction()"></p>
-        <br>
-        <p>Personal Zoom Link:<input type="text" onchange="myFunction()"></p>
-    <br>
-    <br>
-    </div>
-    <!-- <div class="html2pdf__page-break"></div> -->
-    <div class="Course-Outcomes">
-        <h1 id="courseHeader">Course Outcomes</h1>
-        <br>
-        <p>Course Name, Number, and Section:<input type="text" id="courseName" onchange="courseOutcomes()"></p>
-        <br>
-        <p>Course Credit Hours:<input type="text" id="courseCred" onchange="courseOutcomes()"></p>
-        <br>
-        <textarea>Course Description:<input type="text" id="courseDesc" onchange="courseOutcomes()"></textarea>
-        <br>
-        <p>Course Meeting Times, Days, and Location:<input type="courseMeet" id="name" onchange="courseOutcomes()"></p>
-        <br>
-        <textarea>Student Learning Outcomes<input type="text" id="courseLearn" onchange="courseOutcomes()"></textarea>
-        <br>
-    </div>
-    <br>
-    <br>
-    <div class ="Course-Materials">
-        <h1>Course Materials</h1>
-        <br>
-        <p>Textbooks:<input type="text" onchange="myFunction()"></p>
-        <br>
-        <p>Suppliment Readings, Videos and Online Materials:<input type="text" onchange="myFunction()"></p>
-        <br>
-        <p>Other materials and costs:<input type="text" onchange="myFunction()"></p>
-    </div>
-    <br>
-    <br>
+</div><br><br>    
+
+<div id="syllabus">
+    <form id="form">
+        <div class="Instructor-Info">
+            <h1>Instructor Info</h1><br>
+            <label for="name">Instructor's Full Name</label>
+            <input id="name" name="name" type="text"><br>
+            <label for="office-hours">Office Hours</label>
+            <input id="office-hours" name="office-hours" type="text"><br>
+            <label for="office-location">Office Location</label>
+            <input id="office-location" name="office-location" type="text"><br>
+            <label for="email">Email</label>
+            <input for="email" name="email" type="text"><br>
+            <label for="phone-number">Phone Number</label>
+            <input id="phone-number" name="phone-number" type="text"><br>
+            <label for="zoom-link">Zoom link</label>
+            <input id="zoom-link" name="zoom-link" type="text"><br><br>
+        </div>
+        <!-- <div class="html2pdf__page-break"></div> -->
+        <div class="course-information">
+            <h1>Course Information</h1><br>
+            <label for="course-name">Course Name</label>
+            <input id="course-name" name="course-name" type="text"><br>
+            
+            <label for="course-number">Course Number</label>
+            <input id="course-number" name="course-number" type="text"><br>
+            
+            <label for="course-section">Course Section</label>
+            <input id="course-section" name="course-section" type="text"><br>
+            
+            <label for="credit-hours">Credit Hours</label>
+            <input id="credit-hours" name="credit-hours" type="text"><br>
+            
+            <label for="course-description">Course Description</label>
+            <textarea id="course-description" name="course-description"></textarea><br>
+            
+            <label for="meeting-times">Course Meeting Times</label>
+            <input id="meeting-times" name="meeting-times" type="text"><br>
+            
+            <div>
+                <label>Course Meeting Days</label><br>
+                <label for="monday">Monday</label>
+                <input id="day-monday" name="day" type="checkbox" value="monday"><br>
+                <label for="tuesday">Tuesday</label>
+                <input id="day-tuesday" name="day" type="checkbox" value="tuesday"><br>
+                <label for="wednesday">Wednesday</label>
+                <input id="day-wednesday" name="day" type="checkbox" value="wednesday"><br>
+                <label for="thursday">Thursday</label>
+                <input id="day-thursday" name="day" type="checkbox" value="thursday"><br>
+                <label for="friday">Friday</label>
+                <input id="day-friday" name="day" type="checkbox" value="friday"><br>
+            </div>
+
+            <label for="meeting-location">Course Meeting Location</label>
+            <input id="meeting-location" name="meeting-location" type="text"><br>
+            <label for="learning-outcomes">Learning Outcomes</label>
+            <textarea id="learning-outcomes" name="learning-outcomes"></textarea><br>
+            <br>
+        </div><br><br>
+        <div class ="Course-Materials">
+            <h1>Course Materials</h1><br>
+            <label for="textbook">Textbooks</label>
+            <input id="textbook" name="textbook" type="text"><br>
+            <label for="supplements">Supplemental Readings, Videos, and Online Materials</label>
+            <input id="supplements" name="supplements" type="text"><br>
+        </div><br><br>
+
+        <button name="intent" value="submit">Submit It!</button>
+    </form>
+</div>
+
     <div>
         <h1>Semester Calendar</h1>
         <table id="editableGrid" onchange="generateGridCells()">
@@ -300,3 +323,8 @@
 <!-- <div class="html2pdf__page-break"></div> -->
 </body>
 </html>
+
+<div class="results">
+    <h2>Form Data</h2>
+    <output id="output"></output>
+</div>

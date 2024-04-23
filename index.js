@@ -14,6 +14,40 @@ async function about(){
     console.log(responseText)
 }
 
+function courseOutcomes(){
+  var courseName = document.getElementById('courseName').value;
+  var courseCred = document.getElementById('courseCred').value;
+  var courseDesc = document.getElementById('courseDesc').value;
+  var courseMeet = document.getElementById('courseMeet').value;
+  var courseLearn = document.getElementById('courseLearn').value;
+
+  return {
+        courseName: courseName,
+        courseCred: courseCred,
+        courseDesc: courseDesc,
+        courseMeet: courseMeet,
+        courseLearn: courseLearn
+      };
+    }
+    
+    
+    function generateGridCells() {
+      var gridCells = [];
+      document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
+        gridCells.push(`<p>${cell.innerText}</p>`);
+    });
+    return gridCells.join('');
+}
+
+
+function generatePdf() {
+  var element = document.getElementById('syllabus');
+  var gridCells = generateGridCells();
+  element.innerHTML += gridCells;
+  element.innerHTML += courseOutcomes(); 
+  html2pdf('syllabus').from(element).save();
+}
+
 // function generatePdf() {
 //     var element = document.getElementById('syllabus');
 //     var gridCells = document.querySelectorAll('td[contenteditable="true"]');
@@ -22,50 +56,26 @@ async function about(){
 //     });
 //     html2pdf(element);
 // }
-function courseOutcomes(){
-    var courseName = document.getElementById('courseName').value;
-    var courseCred = document.getElementById('courseCred').value;
-    var courseDesc = document.getElementById('courseDesc').value;
-    var courseMeet = document.getElementById('courseMeet').value;
-    var courseLearn = document.getElementById('courseLearn').value;
-
-    return {
-        courseName: courseName,
-        courseCred: courseCred,
-        courseDesc: courseDesc,
-        courseMeet: courseMeet,
-        courseLearn: courseLearn
-    };
-}
-
-
-function generateGridCells() {
-    var gridCells = [];
-    document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
-        gridCells.push(`<p>${cell.innerText}</p>`);
-    });
-    return gridCells.join('');
-}
-
-
-function generatePdf() {
-    var element = document.getElementById('syllabus');
-    var gridCells = generateGridCells();
-    element.innerHTML += gridCells;
-    element.innerHTML += courseOutcomes(); 
-    html2pdf('syllabus').from(element).save();
-}
-
 
 var changeFontFamily = function (fontstyle) {
-    document.getElementById("syllabus").style.fontFamily = fontstyle.value;
+  document.getElementById("syllabus").style.fontFamily = fontstyle.value;
 }
 
 var changeFontSize = function (fontsize) {
-    document.getElementById("syllabus").style.fontSize = fontsize.value;
+  document.getElementById("syllabus").style.fontSize = fontsize.value;
 }
 
 function changeDeptBanner(elem) {
-    var image = document.getElementById("banner-img");
-    image.src = elem.value;
+  var image = document.getElementById("banner-img");
+  image.src = elem.value;
+}
+
+const form = document.getElementById("form");
+const submitter = document.querySelector("button[value=submit]");
+const formData = new FormData(form, submitter);
+
+const output = document.getElementById("output");
+
+for (const [key, value] of formData) {
+  output.textContent += '${key}: ${value}\n}'
 }
