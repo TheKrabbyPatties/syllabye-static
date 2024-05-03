@@ -39,23 +39,15 @@ function courseOutcomes(){
     return gridCells.join('');
 }
 
-
-function generatePdf() {
+function generatePDF() {
   var element = document.getElementById('syllabus');
-  var gridCells = generateGridCells();
-  element.innerHTML += gridCells;
-  element.innerHTML += courseOutcomes(); 
-  html2pdf('syllabus').from(element).save();
+  var opt = {
+    margin: 1,
+    filename: 'syllabus.pdf',
+    pagebreak: {mode: ['avoid-all']}
+  }
+  html2pdf().set(opt).from(element).save();
 }
-
-// function generatePdf() {
-//     var element = document.getElementById('syllabus');
-//     var gridCells = document.querySelectorAll('td[contenteditable="true"]');
-//     gridCells.forEach(cell => {
-//       element.innerHTML += `<p>${cell.innerText}</p>`; 
-//     });
-//     html2pdf(element);
-// }
 
 var changeFontFamily = function (fontstyle) {
   document.getElementById("syllabus").style.fontFamily = fontstyle.value;
@@ -77,5 +69,6 @@ const formData = new FormData(form, submitter);
 const output = document.getElementById("output");
 
 for (const [key, value] of formData) {
-  output.textContent += '${key}: ${value}\n}'
+  output.textContent += '${key}: ${value}}'
 }
+
