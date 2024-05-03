@@ -72,3 +72,17 @@ for (const [key, value] of formData) {
   output.textContent += '${key}: ${value}}'
 }
 
+
+// This code will create a JSON of all the fill-ins from the "form" tag
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   function handleSubmit(event) {
+//     event.preventDefault();
+//     const data = new FormData(event.target);
+//     const value = Object.fromEntries(data.entries());
+//     console.log(JSON.stringify(value, null, 4));
+//   }
+//   
+//   const form = document.querySelector('form');
+//   form.addEventListener('submit', handleSubmit);
+// });
