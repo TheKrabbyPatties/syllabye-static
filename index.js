@@ -1,4 +1,4 @@
-const url = "http://localhost:3000"
+const url = "https://syllabye-server.azurewebsites.net"
 
 async function ping(){
     const fetchString = url + "/api/ping"
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       var jsonString = JSON.stringify(jsonData);
 
       // Send the data to the server
-      fetch('http://localhost:3000/endpoint', {
+      fetch('https://syllabye-server.azurewebsites.net/endpoint', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
