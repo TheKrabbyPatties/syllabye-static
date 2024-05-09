@@ -70,27 +70,68 @@ function changeDeptBanner(elem) {
   image.src = elem.value;
 }
 
-const form = document.getElementById("form");
-const submitter = document.querySelector("button[value=submit]");
-const formData = new FormData(form, submitter);
+// Turns the syllabus into JSON and sends it to the server-side
+document.addEventListener("DOMContentLoaded", () => {
+  function handleSubmit(event) {
+      event.preventDefault();
 
-const output = document.getElementById("output");
+      // Object to hold all JSON outputs
+      const jsonData = {};
 
-for (const [key, value] of formData) {
-  output.textContent += '${key}: ${value}\n}'
-}
+      // Select each div section individually
+      const instructorInfo = document.querySelector('.instructor-info');
+      const courseInformation = document.querySelector('.course-information');
+      const courseMaterials = document.querySelector('.course-materials');
 
+      // Extract data from Instructor Info section
+      const instructorData = {};
+      instructorInfo.querySelectorAll('input, textarea').forEach(input => {
+          instructorData[input.name] = input.value;
+      });
+      jsonData['instructor-info'] = instructorData;
 
-// This code will create a JSON of all the fill-ins from the "form" tag
+      // Extract data from Course Information section except for the checkbox days
+      const courseData = {};
+      courseInformation.querySelectorAll('input, textarea').forEach(input => {
+          if (!(input.name == 'day')){
+            courseData[input.name] = input.value;
+          }
+      });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   function handleSubmit(event) {
-//     event.preventDefault();
-//     const data = new FormData(event.target);
-//     const value = Object.fromEntries(data.entries());
-//     console.log(JSON.stringify(value, null, 4));
-//   }
-//   
-//   const form = document.querySelector('form');
-//   form.addEventListener('submit', handleSubmit);
-// });
+      // Extract the meeting days in one list
+      const days = [];
+      courseInformation.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+          days.push(checkbox.value);
+      });
+      courseData['meeting-days'] = days;
+      jsonData['course-information'] = courseData;
+
+      // Extract data from Course Materials section
+      const materialsData = {};
+      courseMaterials.querySelectorAll('input').forEach(input => {
+          materialsData[input.name] = input.value;
+      });
+      jsonData['course-materials'] = materialsData;
+
+      // Log JSON outputs
+      console.log(JSON.stringify(jsonData, null, 4));
+
+      // Convert JSON to string
+      var jsonString = JSON.stringify(jsonData);
+
+      // Send the data to the server
+      fetch('https://syllabye-server.azurewebsites.net/endpoint', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonString
+      })
+      .then(response => response.json())
+      .then(data => console.log('Success:', data))
+      .catch((error) => console.error('Error:', error));
+  }
+
+  const form = document.querySelector('#form');
+  form.addEventListener('submit', handleSubmit);
+});

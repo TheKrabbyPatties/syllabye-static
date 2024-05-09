@@ -13,6 +13,10 @@ header {
     text-align: center;
 }
 
+.p1 {
+    margin: 3px 0px -17px 0px;
+}
+
 .container {
     width: 80%;
     margin: auto;

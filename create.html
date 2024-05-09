@@ -32,7 +32,7 @@
 
 <div class="custom-options">
 <h1>Customization Options</h1><br>
-<label for="banner">Choose your banner</label><br>
+<label for="department-banner">Choose your banner</label><br>
 <select id="department-banner" name="banner" onchange="changeDeptBanner(this)">
     <option>-Select a banner-</option>
     <option value="banners/lewis-banner.png">Standard Banner</option>
@@ -40,8 +40,8 @@
     <option value="banners/theology-banner.jpg">Theology Dept. Banner</option>
 </select><br><br>
 
-<label for="font-family">Choose a font</label><br>
-<select id="font-family" name="font-family" onchange="changeFontFamily(this)">
+<label for="choose-font-family">Choose a font</label><br>
+<select id="choose-font-family" name="font-family" onchange="changeFontFamily(this)">
     <option>-Select a font-</option>
     <option value='Arial'>Arial</option>  <!--done-->
     <option value='BOOKOS'>Bookman Old Style</option>
@@ -55,8 +55,8 @@
     <option value='Wingdings-Regular'>Wingdings</option> <!--done-->
 </select><br><br>
 
-    <label for="font-size">Choose a font size</label><br>
-    <select id="font-size" name="font-size" onchange="changeFontSize(this)">
+    <label for="choose-font-size">Choose a font size</label><br>
+    <select id="choose-font-size" name="font-size" onchange="changeFontSize(this)">
     <option>-Select a font size-</option>
     <option value="8px">8</option>
     <option value="9px">9</option>
@@ -76,68 +76,62 @@
 
 <div id="syllabus">
     <form id="form">
-        <div class="Instructor-Info">
+        <div class="instructor-info">
             <h1>Instructor Info</h1><br>
-            <label for="name">Instructor's Full Name</label>
-            <input id="name" name="name" type="text"><br>
-            <label for="office-hours">Office Hours</label>
-            <input id="office-hours" name="office-hours" type="text"><br>
-            <label for="office-location">Office Location</label>
-            <input id="office-location" name="office-location" type="text"><br>
-            <label for="email">Email</label>
-            <input for="email" name="email" type="text"><br>
-            <label for="phone-number">Phone Number</label>
-            <input id="phone-number" name="phone-number" type="text"><br>
-            <label for="zoom-link">Zoom link</label>
-            <input id="zoom-link" name="zoom-link" type="text"><br><br>
+            <label for="instructor-name">Instructor's Full Name</label>
+            <input id="instructor-name" name="name" type="text" autocomplete="name"><br>
+            <label for="instructor-office-hours">Office Hours</label>
+            <input id="instructor-office-hours" name="office-hours" type="text"><br>
+            <label for="instructor-office-location">Office Location</label>
+            <input id="instructor-office-location" name="office-location" type="text"><br>
+            <label for="instructor-email">Email</label>
+            <input id="instructor-email" name="email" type="text" autocomplete="email"><br>
+            <label for="instructor-phone-number">Phone Number</label>
+            <input id="instructor-phone-number" name="phone-number" type="text"><br>
+            <label for="instructor-zoom-link">Zoom link</label>
+            <input id="instructor-zoom-link" name="zoom-link" type="text"><br><br>
         </div>
         <!-- <div class="html2pdf__page-break"></div> -->
         <div class="course-information">
             <h1>Course Information</h1><br>
-            <label for="course-name">Course Name</label>
-            <input id="course-name" name="course-name" type="text"><br>
-            
-            <label for="course-number">Course Number</label>
-            <input id="course-number" name="course-number" type="text"><br>
-            
-            <label for="course-section">Course Section</label>
-            <input id="course-section" name="course-section" type="text"><br>
-            
-            <label for="credit-hours">Credit Hours</label>
-            <input id="credit-hours" name="credit-hours" type="text"><br>
-            
-            <label for="course-description">Course Description</label>
-            <textarea id="course-description" name="course-description"></textarea><br>
-            
-            <label for="meeting-times">Course Meeting Times</label>
-            <input id="meeting-times" name="meeting-times" type="text"><br>
-            
-            <div>
-                <label>Course Meeting Days</label><br>
-                <label for="monday">Monday</label>
-                <input id="day-monday" name="day" type="checkbox" value="monday"><br>
-                <label for="tuesday">Tuesday</label>
-                <input id="day-tuesday" name="day" type="checkbox" value="tuesday"><br>
-                <label for="wednesday">Wednesday</label>
-                <input id="day-wednesday" name="day" type="checkbox" value="wednesday"><br>
-                <label for="thursday">Thursday</label>
-                <input id="day-thursday" name="day" type="checkbox" value="thursday"><br>
-                <label for="friday">Friday</label>
-                <input id="day-friday" name="day" type="checkbox" value="friday"><br>
-            </div>
+            <label for="course-info-name">Course Name</label>
+            <input id="course-info-name" name="course-name" type="text"><br>
+            <label for="course-info-number">Course Number</label>
+            <input id="course-info-number" name="course-number" type="text"><br>
+            <label for="course-info-section">Course Section</label>
+            <input id="course-info-section" name="course-section" type="text"><br>
+            <label for="course-info-credit-hours">Credit Hours</label>
+            <input id="course-info-credit-hours" name="credit-hours" type="text"><br>
+            <label for="course-info-description">Course Description</label>
+            <textarea id="course-info-description" name="course-description"></textarea><br>
+            <label for="course-info-meeting-times">Course Meeting Times</label>
+            <input id="course-info-meeting-times" name="meeting-times" type="text"><br>
+            <label for="course-info-meeting-location">Course Meeting Location</label>
+            <input id="course-info-meeting-location" name="meeting-location" type="text"><br>
+            <label for="course-info-learning-outcomes">Learning Outcomes</label>
+            <textarea id="course-info-learning-outcomes" name="learning-outcomes"></textarea><br>
 
-            <label for="meeting-location">Course Meeting Location</label>
-            <input id="meeting-location" name="meeting-location" type="text"><br>
-            <label for="learning-outcomes">Learning Outcomes</label>
-            <textarea id="learning-outcomes" name="learning-outcomes"></textarea><br>
+            <div class="meeting-days">
+                <p class="p1">Course Meeting Days</p><br>
+                <label for="monday">Monday</label>
+                <input id="monday" name="day" type="checkbox" value="monday"><br>
+                <label for="tuesday">Tuesday</label>
+                <input id="tuesday" name="day" type="checkbox" value="tuesday"><br>
+                <label for="wednesday">Wednesday</label>
+                <input id="wednesday" name="day" type="checkbox" value="wednesday"><br>
+                <label for="thursday">Thursday</label>
+                <input id="thursday" name="day" type="checkbox" value="thursday"><br>
+                <label for="friday">Friday</label>
+                <input id="friday" name="day" type="checkbox" value="friday"><br>
+            </div>
             <br>
         </div><br><br>
-        <div class ="Course-Materials">
+        <div class ="course-materials">
             <h1>Course Materials</h1><br>
-            <label for="textbook">Textbooks</label>
-            <input id="textbook" name="textbook" type="text"><br>
-            <label for="supplements">Supplemental Readings, Videos, and Online Materials</label>
-            <input id="supplements" name="supplements" type="text"><br>
+            <label for="course-materials-textbooks">Textbooks</label>
+            <input id="course-materials-textbooks" name="textbooks" type="text"><br>
+            <label for="course-materials-supplements">Supplemental Readings, Videos, and Online Materials</label>
+            <input id="course-materials-supplements" name="supplements" type="text"><br>
         </div><br><br>
 
         <button name="intent" value="submit">Submit It!</button>
