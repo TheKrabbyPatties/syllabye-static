@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Syllabus</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="html2pdf.bundle.min.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
 
 <header>
     <h1>SyllaBye</h1>
-    
+
 </header>
 
 <nav>
@@ -91,28 +91,36 @@
             <label for="instructor-zoom-link">Zoom link</label>
             <input id="instructor-zoom-link" name="zoom-link" type="text"><br><br>
         </div>
-        <!-- <div class="html2pdf__page-break"></div> -->
+        <div class="html2pdf__page-break"></div>
         <div class="course-information">
             <h1>Course Information</h1><br>
-            <label for="course-info-name">Course Name</label>
-            <input id="course-info-name" name="course-name" type="text"><br>
-            <label for="course-info-number">Course Number</label>
-            <input id="course-info-number" name="course-number" type="text"><br>
-            <label for="course-info-section">Course Section</label>
-            <input id="course-info-section" name="course-section" type="text"><br>
-            <label for="course-info-credit-hours">Credit Hours</label>
-            <input id="course-info-credit-hours" name="credit-hours" type="text"><br>
-            <label for="course-info-description">Course Description</label>
-            <textarea id="course-info-description" name="course-description"></textarea><br>
-            <label for="course-info-meeting-times">Course Meeting Times</label>
-            <input id="course-info-meeting-times" name="meeting-times" type="text"><br>
-            <label for="course-info-meeting-location">Course Meeting Location</label>
-            <input id="course-info-meeting-location" name="meeting-location" type="text"><br>
-            <label for="course-info-learning-outcomes">Learning Outcomes</label>
-            <textarea id="course-info-learning-outcomes" name="learning-outcomes"></textarea><br>
+            <label for="course-name">Course Name</label>
+            <input id="course-name" name="course-name" type="text"><br>
+            
+            <label for="course-number">Course Number</label>
+            <input id="course-number" name="course-number" type="text"><br>
+            
+            <label for="course-section">Course Section</label>
+            <input id="course-section" name="course-section" type="text"><br>
 
-            <div class="meeting-days">
-                <p class="p1">Course Meeting Days</p><br>
+            <label>Course Term</label><br>
+            <label for="16-week">16 Week Term</label>
+            <input id="term-16-week" name="term" type="radio"><br>
+            <label for="8-week">8 Week Term</label>
+            <input id="term-8-week" name="term" type="radio"><br>
+
+            
+            <label for="credit-hours">Credit Hours</label>
+            <input id="credit-hours" name="credit-hours" type="text"><br>
+            
+            <label for="course-description">Course Description</label>
+            <textarea id="course-description" name="course-description"></textarea><br>
+            
+            <label for="meeting-times">Course Meeting Times</label>
+            <input id="meeting-times" name="meeting-times" type="text"><br>
+            
+            <div>
+                <label>Course Meeting Days</label><br>
                 <label for="monday">Monday</label>
                 <input id="monday" name="day" type="checkbox" value="monday"><br>
                 <label for="tuesday">Tuesday</label>
@@ -313,9 +321,9 @@
     </div>
 </div>
 <div>
-    <p style="margin-left:110px;"><input id="download-button" type="button" onclick="generatePdf()" value="Generate PDF"></p>
+    <p style="margin-left:110px;"><input id="download-button" type="button" onclick="generatePDF()" value="Generate PDF"></p>
 </div>
-<!-- <div class="html2pdf__page-break"></div> -->
+
 </body>
 </html>
 
