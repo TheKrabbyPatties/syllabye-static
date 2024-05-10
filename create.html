@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Syllabus</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="html2pdf.bundle.min.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
 
 <header>
     <h1>SyllaBye</h1>
-    
+
 </header>
 
 <nav>
@@ -32,7 +32,7 @@
 
 <div class="custom-options">
 <h1>Customization Options</h1><br>
-<label for="banner">Choose your banner</label><br>
+<label for="department-banner">Choose your banner</label><br>
 <select id="department-banner" name="banner" onchange="changeDeptBanner(this)">
     <option>-Select a banner-</option>
     <option value="banners/lewis-banner.png">Standard Banner</option>
@@ -40,8 +40,8 @@
     <option value="banners/theology-banner.jpg">Theology Dept. Banner</option>
 </select><br><br>
 
-<label for="font-family">Choose a font</label><br>
-<select id="font-family" name="font-family" onchange="changeFontFamily(this)">
+<label for="choose-font-family">Choose a font</label><br>
+<select id="choose-font-family" name="font-family" onchange="changeFontFamily(this)">
     <option>-Select a font-</option>
     <option value='Arial'>Arial</option>  <!--done-->
     <option value='BOOKOS'>Bookman Old Style</option>
@@ -55,8 +55,8 @@
     <option value='Wingdings-Regular'>Wingdings</option> <!--done-->
 </select><br><br>
 
-    <label for="font-size">Choose a font size</label><br>
-    <select id="font-size" name="font-size" onchange="changeFontSize(this)">
+    <label for="choose-font-size">Choose a font size</label><br>
+    <select id="choose-font-size" name="font-size" onchange="changeFontSize(this)">
     <option>-Select a font size-</option>
     <option value="8px">8</option>
     <option value="9px">9</option>
@@ -75,23 +75,26 @@
 </div><br><br>    
 
 <div id="syllabus">
+
     <form id="form">
-        <div class="Instructor-Info">
+        <div class="instructor-info">
             <h1>Instructor Info</h1><br>
-            <label for="name">Instructor's Full Name</label>
-            <input id="name" name="name" type="text"><br>
-            <label for="office-hours">Office Hours</label>
-            <input id="office-hours" name="office-hours" type="text"><br>
-            <label for="office-location">Office Location</label>
-            <input id="office-location" name="office-location" type="text"><br>
-            <label for="email">Email</label>
-            <input for="email" name="email" type="text"><br>
-            <label for="phone-number">Phone Number</label>
-            <input id="phone-number" name="phone-number" type="text"><br>
-            <label for="zoom-link">Zoom link</label>
-            <input id="zoom-link" name="zoom-link" type="text"><br><br>
+            <label for="instructor-name">Instructor's Full Name</label>
+            <input id="instructor-name" name="name" type="text" autocomplete="name"><br>
+            <label for="instructor-office-hours">Office Hours</label>
+            <input id="instructor-office-hours" name="office-hours" type="text"><br>
+            <label for="instructor-office-location">Office Location</label>
+            <input id="instructor-office-location" name="office-location" type="text"><br>
+            <label for="instructor-email">Email</label>
+            <input id="instructor-email" name="email" type="text" autocomplete="email"><br>
+            <label for="instructor-phone-number">Phone Number</label>
+            <input id="instructor-phone-number" name="phone-number" type="text"><br>
+            <label for="instructor-zoom-link">Zoom link</label>
+            <input id="instructor-zoom-link" name="zoom-link" type="text"><br><br>
         </div>
-        <!-- <div class="html2pdf__page-break"></div> -->
+
+        <div class="html2pdf__page-break"></div>
+
         <div class="course-information">
             <h1>Course Information</h1><br>
             <label for="course-name">Course Name</label>
@@ -102,6 +105,13 @@
             
             <label for="course-section">Course Section</label>
             <input id="course-section" name="course-section" type="text"><br>
+
+            <p class="p1">Course Term</p><br>
+            <label for="16-week">16 Week Term</label>
+            <input id="16-week" name="term" type="radio"><br>
+            <label for="8-week">8 Week Term</label>
+            <input id="8-week" name="term" type="radio"><br>
+            
             
             <label for="credit-hours">Credit Hours</label>
             <input id="credit-hours" name="credit-hours" type="text"><br>
@@ -113,31 +123,59 @@
             <input id="meeting-times" name="meeting-times" type="text"><br>
             
             <div>
-                <label>Course Meeting Days</label><br>
+                <p class="p1">Course Meeting Days</p><br>
                 <label for="monday">Monday</label>
-                <input id="day-monday" name="day" type="checkbox" value="monday"><br>
+                <input id="monday" name="day" type="checkbox" value="monday"><br>
                 <label for="tuesday">Tuesday</label>
-                <input id="day-tuesday" name="day" type="checkbox" value="tuesday"><br>
+                <input id="tuesday" name="day" type="checkbox" value="tuesday"><br>
                 <label for="wednesday">Wednesday</label>
-                <input id="day-wednesday" name="day" type="checkbox" value="wednesday"><br>
+                <input id="wednesday" name="day" type="checkbox" value="wednesday"><br>
                 <label for="thursday">Thursday</label>
-                <input id="day-thursday" name="day" type="checkbox" value="thursday"><br>
+                <input id="thursday" name="day" type="checkbox" value="thursday"><br>
                 <label for="friday">Friday</label>
-                <input id="day-friday" name="day" type="checkbox" value="friday"><br>
+                <input id="friday" name="day" type="checkbox" value="friday"><br>
             </div>
-
-            <label for="meeting-location">Course Meeting Location</label>
-            <input id="meeting-location" name="meeting-location" type="text"><br>
-            <label for="learning-outcomes">Learning Outcomes</label>
-            <textarea id="learning-outcomes" name="learning-outcomes"></textarea><br>
             <br>
         </div><br><br>
-        <div class ="Course-Materials">
+
+        <div class ="add-assignments">
+            <h1>Add Assignments</h1><br>
+            <label for="add-new-name">New Assignment Name: </label>
+            <input id="add-new-name" type="text"><br>
+            <label for="add-description">Assignment Description: </label><br>
+            <textarea id="add-description" rows="4" cols="35"></textarea><br>
+            <label for="week">Week: </label>
+            <select id="week">
+                <option value="1">Week 1</option>
+                <option value="2">Week 2</option>
+                <option value="3">Week 3</option>
+                <option value="4">Week 4</option>
+                <option value="5">Week 5</option>
+                <option value="6">Week 6</option>
+                <option value="7">Week 7</option>
+                <option value="8">Week 8</option>
+                <option value="9">Week 9</option>
+                <option value="10">Week 10</option>
+                <option value="11">Week 11</option>
+                <option value="12">Week 12</option>
+                <option value="13">Week 13</option>
+                <option value="14">Week 14</option>
+                <option value="15">Week 15</option>
+                <option value="16">Week 16</option>
+            </select><br>
+            <button onclick="addAssignment()">Add Assignment</button><br>
+            <br><br>
+            <label for="assignment-list"><u>Assignment List: </u></label>
+            <ul id="assignment-list"></ul>
+            <button onclick="deleteChecked()">Remove</button>
+        </div><br><br>
+
+        <div class ="course-materials">
             <h1>Course Materials</h1><br>
-            <label for="textbook">Textbooks</label>
-            <input id="textbook" name="textbook" type="text"><br>
-            <label for="supplements">Supplemental Readings, Videos, and Online Materials</label>
-            <input id="supplements" name="supplements" type="text"><br>
+            <label for="course-materials-textbooks">Textbooks</label>
+            <input id="course-materials-textbooks" name="textbooks" type="text"><br>
+            <label for="course-materials-supplements">Supplemental Readings, Videos, and Online Materials</label>
+            <input id="course-materials-supplements" name="supplements" type="text"><br>
         </div><br><br>
 
         <button name="intent" value="submit">Submit It!</button>
@@ -318,10 +356,11 @@
 
     </div>
 </div>
+
 <div>
-    <p style="margin-left:110px;"><input id="download-button" type="button" onclick="generatePdf()" value="Generate PDF"></p>
+    <p style="margin-left:110px;"><input id="download-button" type="button" onclick="generatePDF()" value="Generate PDF"></p>
 </div>
-<!-- <div class="html2pdf__page-break"></div> -->
+
 </body>
 </html>
 
