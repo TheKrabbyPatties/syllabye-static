@@ -1,9 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
     background-color: #dcdcd7;
     color: #242122;
+
 }
 
 header {
@@ -11,12 +12,13 @@ header {
     color: #ffffff;
     padding: 10px 0;
     text-align: center;
+    
 }
 
 .container {
     width: 80%;
     margin: auto;
-    padding: 20px;
+    /* padding: 20px 0; */
 }
 
 nav {
@@ -56,6 +58,8 @@ nav ul li a:hover, nav ul li button:hover {
     color: #ffffff;
     font-weight: bold;
 }
+
+
 
 @font-face {
     font-family: 'HelveticaNeue';
