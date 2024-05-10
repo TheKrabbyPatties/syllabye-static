@@ -87,9 +87,18 @@ document.addEventListener("DOMContentLoaded", () => {
       courseInformation.querySelectorAll('input, textarea').forEach(input => {
           if (!(input.name == 'day')){
             courseData[input.name] = input.value;
-          }
+          };
+          // Properlly display the selected term length
+          if (input.name == 'term'){
+            document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+              courseData[input.name] = radio.id;
+            });
+            if (courseData[input.name] == "on") {
+              courseData[input.name] = "";
+            }
+          };
       });
-
+      
       // Extract the meeting days in one list
       const days = [];
       courseInformation.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
@@ -112,9 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
       var jsonString = JSON.stringify(jsonData);
 
       // Send the data to the server
-      fetch('https://syllabye-server.azurewebsites.net/endpoint', {
+      fetch('https://syllabye-server.azurewebsites.net/save/json', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
         },
