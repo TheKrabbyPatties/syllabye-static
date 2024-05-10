@@ -28,10 +28,41 @@ function courseOutcomes(){
         courseMeet: courseMeet,
         courseLearn: courseLearn
       };
-    }
+}
+  
+  
+function addAssignment() {
+  var name = document.getElementById("add-new-name").value;
+  var description = document.getElementById("add-description").value;
+  var week = document.getElementById("week").value;
+
+  if (name === "" || description === "") {
+      alert("Please enter assignment name and description.");
+      return;
+  }
+
+  var listItem = document.createElement("li");
+  listItem.innerHTML = `<input type="checkbox" class="assignment-checkbox"> ${name} (Week ${week}):<br>${description}`;
+  document.getElementById("assignment-list").appendChild(listItem);
+
+  // Resets input fields once assignment is added
+  document.getElementById("add-new-name").value = "";
+  document.getElementById("add-description").value = "";
+}
+
+function deleteChecked() {
+  var checkboxes = document.getElementsByClassName("assignment-checkbox");
+  var assignments = document.getElementById("assignment-list").getElementsByTagName("li");
+
+  for (var i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+          assignments[i].remove();
+          i--; // Adjusted index (to account for removed item)
+      }
+  }
+}
     
-    
-    function generateGridCells() {
+function generateGridCells() {
       var gridCells = [];
       document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
         gridCells.push(`<p>${cell.innerText}</p>`);
