@@ -28,10 +28,41 @@ function courseOutcomes(){
         courseMeet: courseMeet,
         courseLearn: courseLearn
       };
-    }
+}
+  
+  
+function addAssignment() {
+  var name = document.getElementById("add-new-name").value;
+  var description = document.getElementById("add-description").value;
+  var week = document.getElementById("week").value;
+
+  if (name === "" || description === "") {
+      alert("Please enter assignment name and description.");
+      return;
+  }
+
+  var listItem = document.createElement("li");
+  listItem.innerHTML = `<input type="checkbox" class="assignment-checkbox"> ${name} (Week ${week}):<br>${description}`;
+  document.getElementById("assignment-list").appendChild(listItem);
+
+  // Resets input fields once assignment is added
+  document.getElementById("add-new-name").value = "";
+  document.getElementById("add-description").value = "";
+}
+
+function deleteChecked() {
+  var checkboxes = document.getElementsByClassName("assignment-checkbox");
+  var assignments = document.getElementById("assignment-list").getElementsByTagName("li");
+
+  for (var i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+          assignments[i].remove();
+          i--; // Adjusted index (to account for removed item)
+      }
+  }
+}
     
-    
-    function generateGridCells() {
+function generateGridCells() {
       var gridCells = [];
       document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
         gridCells.push(`<p>${cell.innerText}</p>`);
@@ -87,9 +118,18 @@ document.addEventListener("DOMContentLoaded", () => {
       courseInformation.querySelectorAll('input, textarea').forEach(input => {
           if (!(input.name == 'day')){
             courseData[input.name] = input.value;
-          }
+          };
+          // Properlly display the selected term length
+          if (input.name == 'term'){
+            document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+              courseData[input.name] = radio.id;
+            });
+            if (courseData[input.name] == "on") {
+              courseData[input.name] = "";
+            }
+          };
       });
-
+      
       // Extract the meeting days in one list
       const days = [];
       courseInformation.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
@@ -112,9 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
       var jsonString = JSON.stringify(jsonData);
 
       // Send the data to the server
-      fetch('https://syllabye-server.azurewebsites.net/endpoint', {
+      fetch('https://syllabye-server.azurewebsites.net/save/json', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
         },
