@@ -93,6 +93,35 @@ function changeDeptBanner(elem) {
   image.src = elem.value;
 }
 
+
+async function testFirebaseConnection() {
+  try {
+    // Reference to a location in your database
+    const ref = db.ref('test'); // 'test' is a sample path
+
+    // Write data to the database
+    await ref.set({
+      message: 'Hello, Firebase!'
+    });
+    console.log('Data written successfully.');
+
+    // Read data from the database
+    const snapshot = await ref.once('value');
+    const data = snapshot.val();
+    console.log('Data read from database:', data);
+
+  } catch (error) {
+    console.error('Error connecting to Firebase:', error);
+  }
+}
+
+testFirebaseConnection();
+
+
+
+
+
+
 // Turns the syllabus into JSON and sends it to the server-side
 document.addEventListener("DOMContentLoaded", () => {
   function handleSubmit(event) {
