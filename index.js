@@ -2,6 +2,47 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set} from "firebase/database";
 
+// Your web app's Firebase configuration
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyCQthMiRyG7rs8x-bX-uaOgpOCwGxwDogk",
+
+  authDomain: "syllabye-7f9b8.firebaseapp.com",
+
+  databaseURL: "https://syllabye-7f9b8-default-rtdb.firebaseio.com",
+
+  projectId: "syllabye-7f9b8",
+
+  storageBucket: "syllabye-7f9b8.appspot.com",
+
+  messagingSenderId: "914730272947",
+
+  appId: "1:914730272947:web:cb70b9b64ab37d5d0fc8c6"
+
+};
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Realtime Database and get a reference to the service
+const db = getDatabase(app);
+
+
+
+//testing the option to add in course materials to database
+document.getElementById("course-submit").addEventListener('click', function(e)
+{
+  set(ref(db, 'materials/' + document.getElementById("course-materials").value),{
+
+  
+    textbooks: document.getElementById("course-materials-textbooks").value,
+    supplements: document.getElementById("course-materials-supplements").value
+
+  });
+  alert("Data entry successful!");
+})
 
 const url = "https://syllabye-server.azurewebsites.net"
 
@@ -100,47 +141,7 @@ function changeDeptBanner(elem) {
 
 
 
-// Your web app's Firebase configuration
 
-const firebaseConfig = {
-
-  apiKey: "AIzaSyCQthMiRyG7rs8x-bX-uaOgpOCwGxwDogk",
-
-  authDomain: "syllabye-7f9b8.firebaseapp.com",
-
-  databaseURL: "https://syllabye-7f9b8-default-rtdb.firebaseio.com",
-
-  projectId: "syllabye-7f9b8",
-
-  storageBucket: "syllabye-7f9b8.appspot.com",
-
-  messagingSenderId: "914730272947",
-
-  appId: "1:914730272947:web:cb70b9b64ab37d5d0fc8c6"
-
-};
-
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Initialize Realtime Database and get a reference to the service
-const db = getDatabase(app);
-
-
-
-//testing the option to add in course materials to database
-document.getElementById("course-submit").addEventListener('click', function(e)
-{
-  set(ref(db, 'materials/' + document.getElementById("course-materials").value),{
-
-  
-    textbooks: document.getElementById("course-materials-textbooks").value,
-    supplements: document.getElementById("course-materials-supplements").value
-
-  });
-  alert("Data entry successful!");
-})
 
 
 
