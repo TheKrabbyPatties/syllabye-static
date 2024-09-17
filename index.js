@@ -129,29 +129,44 @@ const db = getDatabase(app);
 
 
 
+//testing the option to add in course materials to database
+document.getElementById("course-submit").addEventListener('click', function(e)
+{
+  set(ref(db, 'materials/' + document.getElementById("course-materials").value),{
 
-async function testFirebaseConnection() {
-  try {
-    // Reference to a location in your database
-    const ref = db.ref('test'); // 'test' is a sample path
+  
+    textbooks: document.getElementById("course-materials-textbooks").value,
+    supplements: document.getElementById("course-materials-supplements").value
 
-    // Write data to the database
-    await ref.set({
-      message: 'Hello, Firebase!'
-    });
-    console.log('Data written successfully.');
+  });
+  alert("Data entry successful!");
+})
 
-    // Read data from the database
-    const snapshot = await ref.once('value');
-    const data = snapshot.val();
-    console.log('Data read from database:', data);
 
-  } catch (error) {
-    console.error('Error connecting to Firebase:', error);
-  }
-}
 
-testFirebaseConnection();
+
+// async function testFirebaseConnection() {
+//   try {
+//     // Reference to a location in your database
+//     const ref = db.ref('test'); // 'test' is a sample path
+
+//     // Write data to the database
+//     await ref.set({
+//       message: 'Hello, Firebase!'
+//     });
+//     console.log('Data written successfully.');
+
+//     // Read data from the database
+//     const snapshot = await ref.once('value');
+//     const data = snapshot.val();
+//     console.log('Data read from database:', data);
+
+//   } catch (error) {
+//     console.error('Error connecting to Firebase:', error);
+//   }
+// }
+
+// testFirebaseConnection();
 
 
 
