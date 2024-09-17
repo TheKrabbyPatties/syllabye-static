@@ -132,9 +132,11 @@ table.table1 {
     margin-left: 5%;
 }
 
-table.table1, td.table1 {
+
+/* table.table1, td.table1 {
     
-}
+} */
+
 /* this is all for the calendar section*/
 table {
     border-collapse: collapse;
