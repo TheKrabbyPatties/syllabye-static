@@ -12,7 +12,31 @@ header {
     color: #ffffff;
     padding: 10px 0;
     text-align: center;
-    
+}
+
+.header-content {
+    width: 100%;
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+}
+  
+.auth-buttons button {
+    background-color: #b3b3b3;
+    color: black;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+  
+.auth-buttons button:hover {
+    background-color: #6e6f71;
+    color: white;
 }
 
 .p1 {
