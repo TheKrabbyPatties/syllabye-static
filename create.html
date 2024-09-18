@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Syllabus</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/syllabye-static/assets/favicon.ico" type="image/x-icon">
+    <!-- <link rel="icon" href="/syllabye-static/assets/favicon.ico" type="image/x-icon"> -->
     <script src="html2pdf.bundle.min.js"></script>
-    <script type="module" src="index.js"></script> <!--changed type to module because there was an error in the console-->
+    <script src="index.js"></script> <!--changed type to module because there was an error in the console-->
 </head>
 <body>
 
@@ -78,7 +78,7 @@
 
 <div id="syllabus">
 
-    <form id="form">
+    <form class="form" id="form">
         <div class="instructor-info">
             <h1>Instructor Info</h1><br>
             <label for="instructor-name">Instructor's Full Name</label>
@@ -180,7 +180,8 @@
             <input id="course-materials-supplements" name="supplements" value="" type="text"><br>
         </div><br><br>
 
-        <button name="intent" id="course-submit" value="submit">Submit It!</button>
+        <!-- <button name="intent" id="course-submit" value="submit">Submit It!</button> -->
+        <button type="submit" class="btn btn-block">submit</button>
     </form>
 </div>
 
@@ -364,6 +365,7 @@
 </div>
 
 </body>
+<script src="form.js"></script>
 </html>
 
 <div class="results">
