@@ -42,7 +42,7 @@ document.getElementById("course-submit").addEventListener('click', function(e)
 
   });
   alert("Data entry successful!");
-})
+});
 
 const url = "https://syllabye-server.azurewebsites.net"
 
