@@ -231,7 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Convert JSON to string
       var jsonString = JSON.stringify(jsonData);
-
+      
+      /*
       // Send the data to the server
       fetch('https://syllabye-server.azurewebsites.net/save/json', {
         method: 'POST',
@@ -240,10 +241,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         body: jsonString
       })
-      .then(response => response.text()) // Change this to .text() to see the raw response
-      .then(data => console.log('Raw response:', data)) // Log the raw response
-      .catch((error) => console.error('Error:', error));
-      /*
       .then(response => response.json())
       .then(data => console.log('Success:', data))
       .catch((error) => console.error('Error:', error));
