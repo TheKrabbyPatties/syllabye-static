@@ -5,36 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Syllabus</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="icon" href="/syllabye-static/assets/favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <script src="html2pdf.bundle.min.js"></script>
-    <script src="index.js"></script> <!--changed type to module because there was an error in the console-->
+    <script type="module" src="index.js"></script> <!--changed type to module because there was an error in the console-->
 </head>
 <body>
 
-<header>
-    <h1>SyllaBye</h1>
-
-</header>
-
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="create.html">Create Syllabus</a></li>
-        <li><a href="suggestion.html">Suggestion Box</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-</nav>
-
-<div class="container">
-    <h2>Customize Your Syllabus</h2>
-    <p>Create your syllabus using the custimaztion options below. You can generate 
-    your final syllabus in PDF form by clicking the "Generate PDF" button at the bottom of the page.</p>
-</div>
-
-<div class="container">
-<div class="custom-options">
-<h1>Customization Options</h1><br>
-<label for="department-banner">Choose your banner</label><br>
+    <header>
+        <h1>SyllaBye</h1>
+        
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="create.html">Create Syllabus</a></li>
+            <li><a href="suggestion.html">Suggestion Box</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h2>Customize Your Syllabus</h2>
+        <p>Create your syllabus using the custimaztion options below. You can generate 
+            your final syllabus in PDF form by clicking the "Generate PDF" button at the bottom of the page.</p>
+        </div>
+        
+        <div class="container">
+            <div class="custom-options">
+                <h1>Customization Options</h1><br>
+                <label for="department-banner">Choose your banner</label><br>
 <select id="department-banner" name="banner" onchange="changeDeptBanner(this)">
     <option>-Select a banner-</option>
     <option value="banners/lewis-banner.png">Standard Banner</option>
@@ -57,8 +57,8 @@
     <option value='Wingdings-Regular'>Wingdings</option> <!--done-->
 </select><br><br>
 
-    <label for="choose-font-size">Choose a font size</label><br>
-    <select id="choose-font-size" name="font-size" onchange="changeFontSize(this)">
+<label for="choose-font-size">Choose a font size</label><br>
+<select id="choose-font-size" name="font-size" onchange="changeFontSize(this)">
     <option>-Select a font size-</option>
     <option value="8px">8</option>
     <option value="9px">9</option>
@@ -71,13 +71,13 @@
     <option value="20px">20</option>
 </select>
 
-    <div class="banner">
-        <img id="banner-img" src='banners/lewis-banner.png'>
-    </div>
+<div class="banner">
+    <img id="banner-img" src='banners/lewis-banner.png'>
+</div>
 </div><br><br>    
 
 <div id="syllabus">
-
+    
     <form class="form" id="form">
         <div class="instructor-info">
             <h1>Instructor Info</h1><br>
@@ -94,9 +94,9 @@
             <label for="instructor-zoom-link">Zoom link</label>
             <input id="instructor-zoom-link" name="zoom-link" type="text"><br><br>
         </div>
-
+        
         <div class="html2pdf__page-break"></div>
-
+        
         <div class="course-information">
             <h1>Course Information</h1><br>
             <label for="course-name">Course Name</label>
@@ -107,7 +107,7 @@
             
             <label for="course-section">Course Section</label>
             <input id="course-section" name="course-section" type="text"><br>
-
+            
             <p class="p1">Course Term</p><br>
             <label for="16-week">16 Week Term</label>
             <input id="16-week" name="term" type="radio"><br>
@@ -139,7 +139,7 @@
             </div>
             <br>
         </div><br><br>
-
+        
         <div class ="add-assignments">
             <h1>Add Assignments</h1><br>
             <label for="add-new-name">New Assignment Name: </label>
@@ -171,7 +171,7 @@
             <ul id="assignment-list"></ul>
             <button onclick="deleteChecked()">Remove</button>
         </div><br><br>
-
+        
         <div class ="course-materials">
             <h1 id="course-materials">Course Materials</h1><br>
             <label for="course-materials-textbooks">Textbooks</label>
@@ -179,185 +179,185 @@
             <label for="course-materials-supplements">Supplemental Readings, Videos, and Online Materials</label>
             <input id="course-materials-supplements" name="supplements" value="" type="text"><br>
         </div><br><br>
-
+        
         <!-- <button name="intent" id="course-submit" value="submit">Submit It!</button> -->
         <button type="submit" class="btn btn-block">submit</button>
     </form>
 </div>
 
-    <div>
-        <h1>Semester Calendar</h1>
-        <table id="editableGrid" onchange="generateGridCells()">
-            <tr>
-                <th>Week</th>
-                <th>Topic</th>
-                <th>Readings</th>
-                <th>Assignments</th>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 1</td>
-                <td contenteditable="true">Click to edit</td>
-                <td contenteditable="true">Click to edit</td>
-                <td contenteditable="true">Click to edit</td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 2</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 3</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 4</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 5</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 6</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 7</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 8</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 9</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 10</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 11</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 12</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 13</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 14</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 15</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td contenteditable="false">Week 16</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-
-          </table>
-    </div>
-
-    <div>
-        <h1>Grading Scale</h1>
-
-        <table class="table1">
-            <tr>
-                <th>Score</th>
-                <th>Letter Grade</th>
-            </tr>
-            <tr>
-                <td contenteditable="true">98 - 100</td>
-                <td contenteditable="true">A+</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">93 - 97</td>
-                <td contenteditable="true">A</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">90 - 92</td>
-                <td contenteditable="true">A-</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">87 - 89</td>
-                <td contenteditable="true">B+</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">83 - 86</td>
-                <td contenteditable="true">B</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">80 - 82</td>
-                <td contenteditable="true">B-</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">77 - 79</td>
-                <td contenteditable="true">C+</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">73 - 76</td>
-                <td contenteditable="true">C</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">70 - 72</td>
-                <td contenteditable="true">C-</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">67 - 69</td>
-                <td contenteditable="true">D+</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">63 - 66</td>
-                <td contenteditable="true">D</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">60 - 62</td>
-                <td contenteditable="true">D-</td>
-            </tr>
-            <tr>
-                <td contenteditable="true">&lt;60</td>
-                <td contenteditable="true">F</td>
-            </tr>
+<div>
+    <h1>Semester Calendar</h1>
+    <table id="editableGrid" onchange="generateGridCells()">
+        <tr>
+            <th>Week</th>
+            <th>Topic</th>
+            <th>Readings</th>
+            <th>Assignments</th>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 1</td>
+            <td contenteditable="true">Click to edit</td>
+            <td contenteditable="true">Click to edit</td>
+            <td contenteditable="true">Click to edit</td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 2</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 3</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 4</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 5</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 6</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 7</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 8</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 9</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 10</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 11</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 12</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 13</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 14</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 15</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+        <tr>
+            <td contenteditable="false">Week 16</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
         
-          </table>
+    </table>
+</div>
 
-    </div>
+<div>
+    <h1>Grading Scale</h1>
+    
+    <table class="table1">
+        <tr>
+            <th>Score</th>
+            <th>Letter Grade</th>
+        </tr>
+        <tr>
+            <td contenteditable="true">98 - 100</td>
+            <td contenteditable="true">A+</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">93 - 97</td>
+            <td contenteditable="true">A</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">90 - 92</td>
+            <td contenteditable="true">A-</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">87 - 89</td>
+            <td contenteditable="true">B+</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">83 - 86</td>
+            <td contenteditable="true">B</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">80 - 82</td>
+            <td contenteditable="true">B-</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">77 - 79</td>
+            <td contenteditable="true">C+</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">73 - 76</td>
+            <td contenteditable="true">C</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">70 - 72</td>
+            <td contenteditable="true">C-</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">67 - 69</td>
+            <td contenteditable="true">D+</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">63 - 66</td>
+            <td contenteditable="true">D</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">60 - 62</td>
+            <td contenteditable="true">D-</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">&lt;60</td>
+            <td contenteditable="true">F</td>
+        </tr>
+        
+    </table>
+    
+</div>
 </div>
 
 <div>
