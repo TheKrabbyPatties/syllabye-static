@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <script src="html2pdf.bundle.min.js"></script>
-    <script type="module" src="index.js"></script> <!--changed type to module because there was an error in the console-->
 </head>
 <body>
-
+    
     <header>
         <h1>SyllaBye</h1>
         
@@ -35,50 +34,50 @@
             <div class="custom-options">
                 <h1>Customization Options</h1><br>
                 <label for="department-banner">Choose your banner</label><br>
-<select id="department-banner" name="banner" onchange="changeDeptBanner(this)">
-    <option>-Select a banner-</option>
-    <option value="banners/lewis-banner.png">Standard Banner</option>
-    <option value="banners/music-banner.png">Music Dept. Banner</option>
-    <option value="banners/theology-banner.jpg">Theology Dept. Banner</option>
-</select><br><br>
+                <select id="department-banner" name="banner" onchange="changeDeptBanner(this)">
+                    <option>-Select a banner-</option>
+                    <option value="banners/lewis-banner.png">Standard Banner</option>
+                    <option value="banners/music-banner.png">Music Dept. Banner</option>
+                    <option value="banners/theology-banner.jpg">Theology Dept. Banner</option>
+                </select><br><br>
+                
+                <label for="choose-font-family">Choose a font</label><br>
+                <select id="choose-font-family" name="font-family" onchange="changeFontFamily(this)">
+                    <option>-Select a font-</option>
+                    <option value='Arial'>Arial</option>  <!--done-->
+                    <option value='BOOKOS'>Bookman Old Style</option>
+                    <option value='Calibri'>Calibri</option> <!--done-->
+                    <option value='Georgia'>Georgia</option> <!--done-->
+                    <option value='HelveticaNeue'>Helvetica Neue</option> <!--done-->
+                    <option value='LibreBaskerville-Regular'>Libre Baskerville</option> <!--done-->
+                    <option value='Merriweather-Regular'>Merriweather</option> <!--done-->
+                    <option value="Sabon">Sabon</option> <!--done-->
+                    <option value='Times New Roman'>Times New Roman</option> <!--done-->
+                    <option value='Wingdings-Regular'>Wingdings</option> <!--done-->
+                </select><br><br>
+                
+                <label for="choose-font-size">Choose a font size</label><br>
+                <select id="choose-font-size" name="font-size" onchange="changeFontSize(this)">
+                    <option>-Select a font size-</option>
+                    <option value="8px">8</option>
+                    <option value="9px">9</option>
+                    <option value="10px">10</option>
+                    <option value="11px">11</option>
+                    <option value="12px">12</option>
+                    <option value="14px">14</option>
+                    <option value="16px">16</option>
+                    <option value="18px">18</option>
+                    <option value="20px">20</option>
+                </select>
+                
+                <div class="banner">
+                    <img id="banner-img" src='banners/lewis-banner.png'>
+                </div>
+            </div><br><br>    
 
-<label for="choose-font-family">Choose a font</label><br>
-<select id="choose-font-family" name="font-family" onchange="changeFontFamily(this)">
-    <option>-Select a font-</option>
-    <option value='Arial'>Arial</option>  <!--done-->
-    <option value='BOOKOS'>Bookman Old Style</option>
-    <option value='Calibri'>Calibri</option> <!--done-->
-    <option value='Georgia'>Georgia</option> <!--done-->
-    <option value='HelveticaNeue'>Helvetica Neue</option> <!--done-->
-    <option value='LibreBaskerville-Regular'>Libre Baskerville</option> <!--done-->
-    <option value='Merriweather-Regular'>Merriweather</option> <!--done-->
-    <option value="Sabon">Sabon</option> <!--done-->
-    <option value='Times New Roman'>Times New Roman</option> <!--done-->
-    <option value='Wingdings-Regular'>Wingdings</option> <!--done-->
-</select><br><br>
-
-<label for="choose-font-size">Choose a font size</label><br>
-<select id="choose-font-size" name="font-size" onchange="changeFontSize(this)">
-    <option>-Select a font size-</option>
-    <option value="8px">8</option>
-    <option value="9px">9</option>
-    <option value="10px">10</option>
-    <option value="11px">11</option>
-    <option value="12px">12</option>
-    <option value="14px">14</option>
-    <option value="16px">16</option>
-    <option value="18px">18</option>
-    <option value="20px">20</option>
-</select>
-
-<div class="banner">
-    <img id="banner-img" src='banners/lewis-banner.png'>
-</div>
-</div><br><br>    
-
-<div id="syllabus">
-    
-    <form class="form" id="form">
+            <div id="syllabus">
+                
+                <form class="form" id="form">
         <div class="instructor-info">
             <h1>Instructor Info</h1><br>
             <label for="instructor-name">Instructor's Full Name</label>
@@ -366,6 +365,7 @@
 
 </body>
 <script src="form.js"></script>
+<script type="module" src="index.js"></script> <!--changed type to module because there was an error in the console-->
 </html>
 
 <div class="results">
