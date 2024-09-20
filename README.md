@@ -19,6 +19,9 @@ Executed as a Node JSON server and will be available to users as a product.
 - To view our current team process, look at the PROCESS.md file
 - Our proposal can be found [here](PROPOSAL.md)
 - You can also download our proposal here: [Team MVP Proposal.docx](https://github.com/user-attachments/files/17068514/Team.MVP.Proposal.docx)
+- Learn about our system process [here](SYSTEM.md)
+- Learn about our new member process [here](NEW_MEMBER.md)
+- Learn about our new customer process [here](NEW_CUSTOMER.md)
   
 
 
