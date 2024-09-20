@@ -11,4 +11,10 @@ form.addEventListener('submit', (e) => {
     console.log(formObject);
 
     e.currentTarget.reset();
+
+    console.log(formObject.name)
+
+    localStorage.setItem('data', JSON.stringify(formObject));
+
+    window.location.href = 'syllabus.html'
 })
