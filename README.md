@@ -17,4 +17,6 @@ Executed as a Node JSON server and will be available to users as a product.
 ## Additional Info 
 - Check out our TEAM.md file for full list of team members
 - To view our current team process, look at the PROCESS.md file
+- Our full proposal can be found here: [Team MVP Proposal.docx](https://github.com/user-attachments/files/17068514/Team.MVP.Proposal.docx)
+
 
