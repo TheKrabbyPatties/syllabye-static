@@ -231,7 +231,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Convert JSON to string
       var jsonString = JSON.stringify(jsonData);
-
+      
+      /*
       // Send the data to the server
       fetch('https://syllabye-server.azurewebsites.net/save/json', {
         method: 'POST',
@@ -243,6 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(response => response.json())
       .then(data => console.log('Success:', data))
       .catch((error) => console.error('Error:', error));
+      */
   }
 
   const form = document.querySelector('#form');
