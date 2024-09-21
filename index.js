@@ -116,36 +116,6 @@ function generateGridCells() {
     return gridCells.join('');
 }
 
-function generatePDF() {
-  var element = document.getElementById('syllabus');
-  var opt = {
-    margin: 1,
-    filename: 'syllabus.pdf',
-    pagebreak: {mode: ['avoid-all']}
-  }
-  html2pdf().set(opt).from(element).save();
-}
-
-var changeFontFamily = function (fontstyle) {
-  document.getElementById("syllabus").style.fontFamily = fontstyle.value;
-}
-
-var changeFontSize = function (fontsize) {
-  document.getElementById("syllabus").style.fontSize = fontsize.value;
-}
-
-function changeDeptBanner(elem) {
-  var image = document.getElementById("banner-img");
-  image.src = elem.value;
-}
-
-
-
-
-
-
-
-
 // async function testFirebaseConnection() {
 //   try {
 //     // Reference to a location in your database

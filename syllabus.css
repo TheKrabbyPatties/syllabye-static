@@ -1,0 +1,70 @@
+.header {
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.banner {
+    display: inline-block;
+    padding: 50px;
+    padding-right: 175px;
+    padding-bottom: 30px;
+    vertical-align: middle;
+}
+
+.main-info {
+    display: inline-block;
+    align-self: right;
+    padding: 50px;
+    padding-bottom: 30px;
+    vertical-align: middle;
+    line-height: 50%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.syllabus {
+   padding-left: 10px;
+   margin: 20px;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+table th {
+    text-align: left;
+    font-size: x-large;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+table td {
+    /* border: 1px solid black; */
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.heading {
+    width: 300px;
+    /* border: 1px solid black; */
+}
+
+.subhead {
+    width: 200px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.data {
+    width: 500px;
+}
+
+.generateButton {
+    background-color: #c22033;
+    border-radius: 5px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-weight: bold;
+}

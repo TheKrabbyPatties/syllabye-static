@@ -6,7 +6,7 @@
     <title>Create Syllabus</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <script src="html2pdf.bundle.min.js"></script>
+    <script type="module" src="index.js"></script> <!--changed type to module because there was an error in the console-->
 </head>
 <body>
     
@@ -108,10 +108,12 @@
             <input id="course-section" name="courseSection" type="text"><br>
             
             <p class="p1">Course Term</p><br>
-            <label for="16-week">16 Week Term</label>
-            <input id="16-week" name="term" value="16 Week Term" type="radio"><br>
-            <label for="8-week">8 Week Term</label>
-            <input id="8-week" name="term" value="8 Week Term" type="radio"><br>
+            <label for="fall">Fall</label>
+            <input id="fall-term" name="term" value="Fall" type="radio"><br>
+            <label for="spring">Spring</label>
+            <input id="spring-term" name="term" value="Spring" type="radio"><br>
+            <label for="year">Year</label>
+            <input id="year" name="year" type="text"><br>
             
             
             <label for="credit-hours">Credit Hours</label>
@@ -359,13 +361,8 @@
 </div>
 </div>
 
-<div>
-    <p style="margin-left:110px;"><input id="download-button" type="button" onclick="generatePDF()" value="Generate PDF"></p>
-</div>
-
 </body>
 <script src="form.js"></script>
-<script type="module" src="index.js"></script> <!--changed type to module because there was an error in the console-->
 </html>
 
 <div class="results">

@@ -1,34 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <h1>Syllabus</h1>
+    <script src="html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="syllabus.css">
 </head>
+
 <body>
-    <div>
-        <h2>Instructor Info</h2><br>
-        Instructor Name: <p id="name"></p><br>
-        Office Hours: <p id="officeHours"></p><br>
-        Office Location: <p id="officeLocation"></p><br>    
-        Email: <p id="email"></p><br>
-        Phone Number: <p id="phoneNumber"></p><br>
-        Zoom Meeting Link: <p id="zoomLink"></p><br><br>
+    <div id="pdfArea">
+        <header>
+            <div class="banner">
+                <img id="banner-img" src='banners/lewis-banner.png'>
+            </div>
+            
+            <div class="main-info">
+                <p id="courseName"></p>
+                <p id="courseNumber"></p>
+                <p>Syllabus</p> 
+                <p id="term"></p><br>
+            </div>
+        </header>
+
+        <div class="syllabus">
+            <div>
+                <table>
+                    <tr>
+                        <th class="heading">Instructor Information:</th>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Instructor Name:</td>
+                        <td class="data" id="name"></td>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Office Hours:</td>
+                        <td class="data" id="officeHours"></td>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Office Location:</td>
+                        <td class="data" id="officeLocation"></td>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Email:</td>
+                        <td class="data" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Phone Number:</td>
+                        <td class="data" id="phoneNumber"></td>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Zoom Meeting Link:</td>
+                        <td class="data" id="zoomLink"></td>
+                    </tr>
+    
+    
+                    <tr>
+                        <th class="heading">Course Information</th>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Course:</td>
+                        <td class="data" id="course"></td>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Credit Hours:</td>
+                        <td class="data" id="creditHours"></td>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Course Meeting Times:</td>
+                        <td class="data" id="meetingTimes"></td>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Course Meeting Days:</td>
+                        <td class="data" id="days"></td>
+                    </tr>
+                    <tr>
+                        <th class="subhead">Course Description:</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="courseDescription"></td>
+                    </tr>
+                    
+    
+                    <tr>
+                        <th class="heading">Course Materials</th>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Textbooks:</td>
+                        <td class="data" id="textbooks"></td>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Supplemental Materials:</td>
+                        <td class="data" id="supplements"></td>
+                    </tr>
+                </table>   
+            </div>
+        </div>
     </div>
-    <div>
-        <h2>Course Information</h2>
-        Course Name: <p id="courseName"></p><br>
-        Course Number: <p id="courseNumber"></p><br>
-        Course Section: <p id="courseSection"></p><br>
-        Course Term: <p id="term"></p><br>
-        Credit Hours: <p id="creditHours"></p><br>
-        Course Description: <p id="courseDescription"></p><br>
-        Course Meeting Times: <p id="meetingTimes"></p><br>
-        Course Meeting Days: <p id="days"></p><br><br>
-    </div>
-    <div>
-        <h2>Course Materials</h2><br>
-        Textbooks: <p id="textbooks"></p><br>
-        Supplemental Materials: <p id="supplements"></p><br><br>
-    </div>
+    <input class="generateButton" type="submit" onclick="generatePDF()" name="submit" value="Generate PDF">
 </body>
 <script src="syllabus.js"></script>
 </html>
