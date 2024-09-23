@@ -12,16 +12,16 @@ Josh Brown, Kevin Danowski, Olivia Adamic, Logan Prasczewicz, Emilio Vilchis, Ke
 Requires updating.
 
 ## Execute Instructions
-Executed as a Node JSON server and will be available to users as a product.
+Executed as a Node JSON server and our product can be used through our site.
 
-## Additional Info 
-- Check out our TEAM.md file for full list of team members
-- To view our current team process, look at the PROCESS.md file
-- Our proposal can be found [here](PROPOSAL.md)
-- You can also download our proposal here: [Team MVP Proposal.docx](https://github.com/user-attachments/files/17068514/Team.MVP.Proposal.docx)
-- Learn about our system process [here](SYSTEM.md)
-- Learn about our new member process [here](NEW_MEMBER.md)
-- Learn about our new customer process [here](NEW_CUSTOMER.md)
+## Additional Information
+- Check out our [TEAM.md](TEAM.md) file for a full list of our team members
+- To view our current team process, you can view the [PROCESS.md](PROCESS.md) file
+- Our Team's MVP (Minimum Viable Product) Proposal Document can be found [here](PROPOSAL.md)
+- Our proposal can also be downloaded here: [Team MVP Proposal.docx](https://github.com/user-attachments/files/17068514/Team.MVP.Proposal.docx)
+- Learn about the System process by clicking [here](SYSTEM.md)
+- Learn about the New Member process by clicking [here](NEW_MEMBER.md)
+- Learn about the New Customer process by clicking [here](NEW_CUSTOMER.md)
   
 
 
