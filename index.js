@@ -1,3 +1,49 @@
+/*imports for firebase*/
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+// Your web app's Firebase configuration
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyCQthMiRyG7rs8x-bX-uaOgpOCwGxwDogk",
+
+  authDomain: "syllabye-7f9b8.firebaseapp.com",
+
+  databaseURL: "https://syllabye-7f9b8-default-rtdb.firebaseio.com",
+
+  projectId: "syllabye-7f9b8",
+
+  storageBucket: "syllabye-7f9b8.appspot.com",
+
+  messagingSenderId: "914730272947",
+
+  appId: "1:914730272947:web:cb70b9b64ab37d5d0fc8c6"
+
+};
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Initialize Realtime Database and get a reference to the service
+const db = getDatabase(app);
+
+
+
+//testing the option to add in course materials to database
+document.getElementById("course-submit").addEventListener('click', function(e)
+{
+  set(ref(db, 'materials/' + document.getElementById("course-materials").value),{
+
+  
+    textbooks: document.getElementById("course-materials-textbooks").value,
+    supplements: document.getElementById("course-materials-supplements").value
+
+  });
+  alert("Data entry successful!");
+})
+
 const url = "https://syllabye-server.azurewebsites.net"
 
 async function ping(){
@@ -14,58 +60,161 @@ async function about(){
     console.log(responseText)
 }
 
-// function generatePdf() {
-//     var element = document.getElementById('syllabus');
-//     var gridCells = document.querySelectorAll('td[contenteditable="true"]');
-//     gridCells.forEach(cell => {
-//       element.innerHTML += `<p>${cell.innerText}</p>`; 
-//     });
-//     html2pdf(element);
-// }
 function courseOutcomes(){
-    var courseName = document.getElementById('courseName').value;
-    var courseCred = document.getElementById('courseCred').value;
-    var courseDesc = document.getElementById('courseDesc').value;
-    var courseMeet = document.getElementById('courseMeet').value;
-    var courseLearn = document.getElementById('courseLearn').value;
+  var courseName = document.getElementById('courseName').value;
+  var courseCred = document.getElementById('courseCred').value;
+  var courseDesc = document.getElementById('courseDesc').value;
+  var courseMeet = document.getElementById('courseMeet').value;
+  var courseLearn = document.getElementById('courseLearn').value;
 
-    return {
+  return {
         courseName: courseName,
         courseCred: courseCred,
         courseDesc: courseDesc,
         courseMeet: courseMeet,
         courseLearn: courseLearn
-    };
+      };
+}
+  
+  
+function addAssignment() {
+  var name = document.getElementById("add-new-name").value;
+  var description = document.getElementById("add-description").value;
+  var week = document.getElementById("week").value;
+
+  if (name === "" || description === "") {
+      alert("Please enter assignment name and description.");
+      return;
+  }
+
+  var listItem = document.createElement("li");
+  listItem.innerHTML = `<input type="checkbox" class="assignment-checkbox"> ${name} (Week ${week}):<br>${description}`;
+  document.getElementById("assignment-list").appendChild(listItem);
+
+  // Resets input fields once assignment is added
+  document.getElementById("add-new-name").value = "";
+  document.getElementById("add-description").value = "";
 }
 
+function deleteChecked() {
+  var checkboxes = document.getElementsByClassName("assignment-checkbox");
+  var assignments = document.getElementById("assignment-list").getElementsByTagName("li");
 
+  for (var i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+          assignments[i].remove();
+          i--; // Adjusted index (to account for removed item)
+      }
+  }
+}
+    
 function generateGridCells() {
-    var gridCells = [];
-    document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
+      var gridCells = [];
+      document.querySelectorAll('td[contenteditable="true"]').forEach(cell => {
         gridCells.push(`<p>${cell.innerText}</p>`);
     });
     return gridCells.join('');
 }
 
+// async function testFirebaseConnection() {
+//   try {
+//     // Reference to a location in your database
+//     const ref = db.ref('test'); // 'test' is a sample path
 
-function generatePdf() {
-    var element = document.getElementById('syllabus');
-    var gridCells = generateGridCells();
-    element.innerHTML += gridCells;
-    element.innerHTML += courseOutcomes(); 
-    html2pdf('syllabus').from(element).save();
-}
+//     // Write data to the database
+//     await ref.set({
+//       message: 'Hello, Firebase!'
+//     });
+//     console.log('Data written successfully.');
+
+//     // Read data from the database
+//     const snapshot = await ref.once('value');
+//     const data = snapshot.val();
+//     console.log('Data read from database:', data);
+
+//   } catch (error) {
+//     console.error('Error connecting to Firebase:', error);
+//   }
+// }
+
+// testFirebaseConnection();
 
 
-var changeFontFamily = function (fontstyle) {
-    document.getElementById("syllabus").style.fontFamily = fontstyle.value;
-}
 
-var changeFontSize = function (fontsize) {
-    document.getElementById("syllabus").style.fontSize = fontsize.value;
-}
 
-function changeDeptBanner(elem) {
-    var image = document.getElementById("banner-img");
-    image.src = elem.value;
-}
+
+
+// Turns the syllabus into JSON and sends it to the server-side
+document.addEventListener("DOMContentLoaded", () => {
+  function handleSubmit(event) {
+      event.preventDefault();
+
+      // Object to hold all JSON outputs
+      const jsonData = {};
+
+      // Select each div section individually
+      const instructorInfo = document.querySelector('.instructor-info');
+      const courseInformation = document.querySelector('.course-information');
+      const courseMaterials = document.querySelector('.course-materials');
+
+      // Extract data from Instructor Info section
+      const instructorData = {};
+      instructorInfo.querySelectorAll('input, textarea').forEach(input => {
+          instructorData[input.name] = input.value;
+      });
+      jsonData['instructor-info'] = instructorData;
+
+      // Extract data from Course Information section except for the checkbox days
+      const courseData = {};
+      courseInformation.querySelectorAll('input, textarea').forEach(input => {
+          if (!(input.name == 'day')){
+            courseData[input.name] = input.value;
+          };
+          // Properlly display the selected term length
+          if (input.name == 'term'){
+            document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+              courseData[input.name] = radio.id;
+            });
+            if (courseData[input.name] == "on") {
+              courseData[input.name] = "";
+            }
+          };
+      });
+      
+      // Extract the meeting days in one list
+      const days = [];
+      courseInformation.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+          days.push(checkbox.value);
+      });
+      courseData['meeting-days'] = days;
+      jsonData['course-information'] = courseData;
+
+      // Extract data from Course Materials section
+      const materialsData = {};
+      courseMaterials.querySelectorAll('input').forEach(input => {
+          materialsData[input.name] = input.value;
+      });
+      jsonData['course-materials'] = materialsData;
+
+      // Log JSON outputs
+      console.log(JSON.stringify(jsonData, null, 4));
+
+      // Convert JSON to string
+      var jsonString = JSON.stringify(jsonData);
+
+      // Send the data to the server
+      fetch('https://syllabye-server.azurewebsites.net/save/json', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonString
+      })
+      .then(response => response.json())
+      .then(data => console.log('Success:', data))
+      .catch((error) => console.error('Error:', error));
+  }
+
+  const form = document.querySelector('#form');
+  form.addEventListener('submit', handleSubmit);
+});

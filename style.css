@@ -1,9 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
     background-color: #dcdcd7;
     color: #242122;
+
 }
 
 header {
@@ -13,10 +14,40 @@ header {
     text-align: center;
 }
 
+.header-content {
+    width: 100%;
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+}
+  
+.auth-buttons button {
+    background-color: #b3b3b3;
+    color: black;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+  
+.auth-buttons button:hover {
+    background-color: #6e6f71;
+    color: white;
+}
+
+.p1 {
+    margin: 3px 0px -17px 0px;
+}
+
 .container {
     width: 80%;
-    margin: auto;
-    padding: 20px;
+    margin: 20px;
+    padding: 30px; 
+    /* padding: 20px 0; */
 }
 
 nav {
@@ -56,6 +87,8 @@ nav ul li a:hover, nav ul li button:hover {
     color: #ffffff;
     font-weight: bold;
 }
+
+
 
 @font-face {
     font-family: 'HelveticaNeue';
@@ -101,7 +134,8 @@ nav ul li a:hover, nav ul li button:hover {
     align-items: center; 
     background-color:#242122;
     width: 100%;
-    padding: 20px;
+    padding: 20px; 
+    margin: 10px; 
     font-size: medium; 
     color: #ffffff; 
     overflow: hidden; 
@@ -122,9 +156,11 @@ table.table1 {
     margin-left: 5%;
 }
 
-table.table1, td.table1 {
+
+/* table.table1, td.table1 {
     
-}
+} */
+
 /* this is all for the calendar section*/
 table {
     border-collapse: collapse;
