@@ -2,7 +2,7 @@
 // const {getAuth, createUserWithEmailAndPassword} = require("firebase/auth");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCQthMiRyG7rs8x-bX-uaOgpOCwGxwDogk",
@@ -18,9 +18,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-const form = document.querySelector('.login-signup');
 
-form.addEventListener('submit', (e) => {
+// Sign in existing users
+const loginForm = document.querySelector('.login');
+
+loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -29,19 +31,19 @@ form.addEventListener('submit', (e) => {
     console.log('Password:', password);
 
     const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-    // Signed up 
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
     const user = userCredential.user;
-    alert("Creating Account...")
-    window.location.href = "index.html";
+    alert("Signing in...")
+    window.location.href = "auth-testing.html";
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.error('Error signing up:', errorCode, errorMessage);
-    // ..
+    console.error('Error signing in:', errorCode, errorMessage);
   });
+
     e.currentTarget.reset();
 })
 
