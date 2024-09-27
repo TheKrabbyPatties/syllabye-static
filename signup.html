@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
@@ -20,10 +20,12 @@
                     <input type="password" id="password" name="password" required>
                 </div>
                 <p>Already have an account? <a href="login.html">Click here</a></p>
-                <button type="submit" class="login-btn">Create Account</button>
+                <button type="submit" class="signup-btn">Create Account</button>
             </form>
         </div>
     </div>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.15/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.15/firebase-auth.js"></script>
 </body>
-<script src="login-signup.js"></script>
+<script type="module" src="login-signup.js"></script>
 </html>
