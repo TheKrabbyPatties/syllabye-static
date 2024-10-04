@@ -17,6 +17,13 @@ header {
     width: 100%;
 }
 
+.poster {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
 .auth-buttons {
     position: absolute;
     top: 30px;
