@@ -4,7 +4,6 @@ body {
     /* padding: 0; */
     background-color: #dcdcd7;
     color: #242122;
-
 }
 
 header {
@@ -40,14 +39,31 @@ header {
 }
 
 .p1 {
-    margin: 3px 0px -17px 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
 .container {
-    width: 80%;
-    margin: 20px;
-    padding: 30px; 
-    /* padding: 20px 0; */
+    width: 100%;
+}
+
+.container-home {
+    width: 90%;
+    margin: 50px;
+}
+
+.home {
+    background-color: #940731;
+    color: white;
+
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 25px;
+
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
 }
 
 nav {
@@ -182,4 +198,101 @@ td {
 
 .editing {
   background-color:#bcbcbc;
+}
+
+.form {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.section:first-child, .section:nth-child(3){
+    display: inline-block;
+    min-width: 70%;
+
+    
+
+    background-color: #940731;
+    color: white;
+
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 25px;
+
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+
+/*THIS SECTION IS FOR COURSE INFO*/
+.section {
+    --course-info-min-width: 50%;
+    display: inline-block;
+    min-width: 70%;
+
+    background-color: #940731;
+    color: white;
+
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 25px;
+
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.label {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    justify-items: right;
+    margin: 10px;
+    width: 80%;
+}
+
+.days {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.terms {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+#course-submit {
+    vertical-align: middle;
+    background-color: #c22033;
+    color: white;
+    font-size: medium;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.btn-center {
+    margin: auto;
+    margin-bottom: 20px;
 }

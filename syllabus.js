@@ -22,17 +22,3 @@ document.getElementById('courseDescription').innerHTML = formObject.courseDescri
 //Change values for course mats
 document.getElementById('textbooks').innerHTML = formObject.textbooks;
 document.getElementById('supplements').innerHTML = formObject.supplements;
-
-//Generates a PDF version of the page
-function generatePDF() {
-    var element = document.getElementById('syllabus')
-    var options = {
-      margin: 1,
-      filename: 'syllabus.pdf',
-      pagebreak: {mode: 'avoid-all'},
-      image: {type: 'jpeg', quality: 0.98},
-      html2canvas: {scale: 2},
-      jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'},
-    };
-    html2pdf().set(options).from(element).save();
-}
