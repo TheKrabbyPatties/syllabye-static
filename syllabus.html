@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="syllabus.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <div id="pdfArea">
-        <header>
+    <div id="content">
+        <header> 
             <div class="banner">
-                <img id="banner-img" src='banners/lewis-banner.png'>
+                <!--COMMENT OUT BANNER FOR TESTING PURPOSES, TAINTED CANVAS ERROR OCCURS-->
+                <img id="banner-img" alt="Lewis University Banner" src='banners/lewis-banner.png'>
             </div>
             
             <div class="main-info">
@@ -19,12 +20,12 @@
                 <p id="term"></p><br>
             </div>
         </header>
-
+        
         <div class="syllabus">
             <div>
                 <table>
                     <tr>
-                        <th class="heading">Instructor Information:</th>
+                        <td class="heading"><b>Instructor Information</b></th>
                     </tr>
                     <tr>
                         <td class="subhead">Instructor Name:</td>
@@ -51,9 +52,9 @@
                         <td class="data" id="zoomLink"></td>
                     </tr>
     
-    
+                    
                     <tr>
-                        <th class="heading">Course Information</th>
+                        <td class="heading"><b>Course Information</b></th>
                     </tr>
                     <tr>
                         <td class="subhead">Course:</td>
@@ -72,15 +73,15 @@
                         <td class="data" id="days"></td>
                     </tr>
                     <tr>
-                        <th class="subhead">Course Description:</th>
+                        <td class="subhead">Course Description:</th>
                     </tr>
                     <tr>
                         <td colspan="2" id="courseDescription"></td>
                     </tr>
                     
-    
+                    
                     <tr>
-                        <th class="heading">Course Materials</th>
+                        <td class="heading"><b>Course Materials</b></th>
                     </tr>
                     <tr>
                         <td class="subhead">Textbooks:</td>
@@ -90,11 +91,156 @@
                         <td class="subhead">Supplemental Materials:</td>
                         <td class="data" id="supplements"></td>
                     </tr>
-                </table>   
+                    
+                    
+                    <tr>
+                        <td class="heading"><b>Academic Information for Students</b></th>
+                    </tr>
+                    
+                    <tr>
+                        <td class="subhead">Requests for Reasonable Accomodations:</td>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>Lewis University is committed to providing equal access and opportunity for participation in all programs, services and activities. If you are a student with a disability who would like to request a reasonable accommodation, please speak with the Learning Access Coordinator at the Center for Academic Success and Enrichment (CASE). Please make an appointment by calling 815-836-5593 or emailing learningaccess@lewisu.edu. Since accommodations require early planning and are not provided retroactively, it is recommended that you make your request prior to or during the first week of class. It is not necessary to disclose the nature of your disability to your instructor. For more information about academic support services, visit the website at: www.lewisu.edu/CASE.<br><br>
+                                
+                                Lewis University has adopted Blackboard Ally providing alternative formats for files uploaded by instructors. Students can click the down arrow next to any file, and select Alternative Formats.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="subhead">Academic Integrity:</td>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>
+                                Scholastic integrity lies at the heart of Lewis University. Plagiarism, collusion and other forms of cheating or scholastic dishonesty are incompatible with the principles of the University. Students engaging in such activities are subject to loss of credit and expulsion from the University. Cases involving academic dishonesty are initially considered and determined at the instructor level. If the student is not satisfied with the instructor’s explanation, the student may appeal at the department/program level. Appeal of the department /program decision must be made to the Dean of the college/school. The Dean reviews the appeal and makes the final decision in all cases except those in which suspension or expulsion is recommended, and in these cases the Provost makes the final decision.
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td class="heading"><b>Student Health, Wellness, and Community Standards</b></th>
+                    </tr>
+                    <tr>
+                        <td class="subhead">Sanctified Zone:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>
+                                Guided by its Catholic and Lasallian heritage, Lewis University is firmly committed to fostering a campus atmosphere that is permeated by its Mission values of Fidelity, Wisdom, Knowledge, Justice, and Association. Accordingly, we have declared the University campus to be a Sanctified Zone, a place and a people United in Diversity. The active promotion of diversity and the opposition to all forms of prejudice and bias are a powerful and healing expression of our desire to be Signs of Faith (Signum Fidei) to each other. To learn more about the Sanctified Zone, please visit: http://www.lewisu.edu/sanctified zone<br><br>
+                                
+                                As a Sanctified Zone, Lewis University affirms the importance of diverse spiritual and value-based identities, worldviews, and expressions, including the observance of religious and cultural traditions. To learn more about the rich diversity of spiritual and cultural holidays celebrated within the Lewis community, please see the Interfaith Calendar. Please note that this calendar is not a designation of spiritual and cultural holidays officially recognized or observed by Lewis University; rather, it is intended as an educational resource for the Lewis community.<br><br>
+                                
+                                Lewis University is committed to inclusion “together and by association” on our campus and in our classrooms. At the beginning of the semester, you should carefully review this course syllabus and requirements. If you have religious or cultural observances that reasonably conflict with attendance or submission of assignments in this class, please let the instructor know as soon as possible so that alternative arrangements may be discussed at the instructor’s discretion.  
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="subhead">University Student Complaint Policy:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>
+                                The University Student Complaint Policy can be found at lewisu.edu/studentcomplaints
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="subhead">University Grade Appeal Policy:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>
+                                The University Grade Appeal Policy can be found at lewisuedu/studentcomplaints
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="subhead">Center for Health & Counseling Services:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>
+                                To support student success, all Lewis students are eligible for free health and mental health services on the Romeoville campus. This includes commuters and those living on campus, part-time and full-time students, graduate and undergraduate students, and those taking Lewis classes at other locations. For more information, visit the Center for Health & Counseling website at www.lewisu.edu/studentservices/health or call (815)836-5455.
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="subhead">Violence Prevention:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>
+                                Students at Lewis University are entitled to personal safety. Our Catholic and Lasallian tradition views every person as created in the image of God, full of dignity and worth. All community members are expected to behave in a way that respects others' rights to control their sexual behavior and bodily integrity. The University takes seriously any incidents of sexual misconduct — including but not limited to sexual harassment, non-consensual sexual intercourse, non-consensual sexual contact and sexual exploitation. To learn more about our comprehensive Sexual Misconduct Policy, find out how to report an incident, or access on and off campus resources, please visit the LU Cares website at www.lewisu.edu/LUCares. 
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="subhead">Mandatory Reporting:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>
+                                As an instructor, I have a required reporting responsibility as a part of my role. Lewis University policy requires me to share certain information brought to my attention about potential sexual misconduct with the Title IX Coordinator. I will seek to keep the information you share private to the greatest extent possible. Information will only be shared with those that need to know to ensure the University can respond, take appropriate measures, and provide resources.<br><br>
+                                
+                                A list of confidential (those not required to report to the Title IX office) on and off-campus resources can be found on the LU Cares website: www.lewisu.edu/LUCares. For those who may have experienced sexual violence, harassment, dating violence, or stalking, there are no-cost resources available to provide assistance. This support also extends to the individuals' associates. The timeframe in which the violence occurred is not a factor in accessing these resources.
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="subhead">Student Wellness Center:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>
+                                All Lewis students are eligible and encouraged to use the services offered to support overall well-being and student success. The Student Wellness Center is located on the lower level of Mother Teresa Hall on the Romeoville campus. For more information about all Center offerings or to access on campus, in-person services, visit https://www.lewisu.edu/StudentWellnessCenter or call (815)836-5455.
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="subhead">Timely Care:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>
+                                All students have access to a 24/7, 365 days per year telehealth services through a partnership with TimelyCare (medical, counseling, health coaching, self-care resources/peer community and urgent care). To access services, go to www.timelycare.com/lewisu, use your Lewis University email to log in or download the TimelyCare app. TalkNow and Medical Now on-demand services are available any time of day, either by phone or video. TimelyCare staff are trained to work with any level of concern and will connect students with the Student Wellness Center for additional assistance and follow-up as appropriate.<br><br>
+                                
+                                <b>If a student is at imminent risk or there is a serious safety concern, please call 911 or Lewis University Police Department 815-836-5911.</b> Lewis community members are encouraged to complete the Assessment and Care Team Person of Concern Form and the Dean of Students Office will ensure follow-up support as well as other campus resources if helpful and needed.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="heading"><b>Additional Policies and Resources</b></th>
+                    </tr>
+                    <tr>
+                        <td class="subhead">University Copyright and Intellectual Property Guidelines:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>
+                                The University Copyright and Intellectual Property Guidelines can be found at https://www.lewisu.edu/osp/pdf/Intellectual%20Property%20Rights%20Policy.pd
+                            </p>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
-    <input class="generateButton" type="submit" onclick="generatePDF()" name="submit" value="Generate PDF">
+    <button id="btn-to-word">Download as Word</button>
+    <script src="syllabus.js"></script>
+    <script src="genWord.js"></script>
 </body>
-<script src="syllabus.js"></script>
 </html>

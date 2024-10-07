@@ -46,7 +46,8 @@ table td {
 }
 
 .heading {
-    width: 300px;
+    width: 550px;
+    font-size: x-large;
     /* border: 1px solid black; */
 }
 
