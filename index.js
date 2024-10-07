@@ -1,6 +1,6 @@
 /*imports for firebase*/
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+// import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 // // Your web app's Firebase configuration
 
@@ -52,10 +52,10 @@ document.getElementById("course-submit").addEventListener('click', function(e) {
   const textbooks = document.getElementById("course-materials-textbooks").value;
   const supplements = document.getElementById("course-materials-supplements").value;
 
-  if (!textbooks || !supplements) {
-    alert("Please enter both textbooks and supplements.");
-    return;
-  }
+  // if (!textbooks || !supplements) {
+  //   alert("Please enter both textbooks and supplements.");
+  //   return;
+  // }
 
   const courseData = {
     textbooks: textbooks,
