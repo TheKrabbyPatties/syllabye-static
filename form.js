@@ -1,23 +1,74 @@
 const form = document.querySelector('.form');
 
+// Leaving old code for saving JSON for now
+//form.addEventListener('submit', (e) => {
+//    e.preventDefault();
+//    const formData = new FormData(e.currentTarget);
+//    const entries = [...formData.entries()];
+//    console.log(entries);
+//
+//    const formObject = Object.fromEntries(formData);
+//    formObject.day = formData.getAll('day')
+//    console.log(formObject);
+//
+//    e.currentTarget.reset();
+//
+//    console.log(formObject.name)
+//
+//    localStorage.setItem('data', JSON.stringify(formObject));
+//
+//    //window.location.href = 'syllabus.html'
+//})
+
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const entries = [...formData.entries()];
-    console.log(entries);
+  e.preventDefault();
 
-    const formObject = Object.fromEntries(formData);
-    formObject.day = formData.getAll('day')
-    console.log(formObject);
+  const formData = new FormData(e.currentTarget);
+  const entries = [...formData.entries()];
 
-    e.currentTarget.reset();
+  // Create the sections
+  const sections = {
+      "instructor-info": {},
+      "course-information": {
+        "day": [] // Day needs to be initialized so is not "undefined" if nothing selected
+      },
+      "course-materials": {},
+      "no-section": {} // To catch any non-sectioned values
+  };
 
-    console.log(formObject.name)
+  entries.forEach(([key, value]) => {
+      if (key === "day") { // Makes sure to show all selected days and not just the last one
+          const selectedDays = formData.getAll('day');
+          sections["course-information"]["day"] = selectedDays;
+      } else {
+          // Find the input element using the key (name)
+          const inputElement = e.currentTarget.querySelector(`[name="${key}"]`);
 
-    localStorage.setItem('data', JSON.stringify(formObject));
+          if (inputElement) {
+              
+              const sectionId = inputElement.closest('.section')?.id; // Finds the proper section for each value
 
-    window.location.href = 'syllabus.html'
-})
+              if (sections[sectionId]) { // Adds the values to the proper sections
+                  sections[sectionId][key] = value;
+              } else {
+                  sections["no-section"][key] = value;
+              }
+          }
+      }
+  });
+
+  // Console log for testing purposes, must comment out "window.location.href = 'syllabus.html'" to see
+  console.log('Instructor Info:', sections["instructor-info"]);
+  console.log('Course Information:', sections["course-information"]);
+  console.log('Course Materials:', sections["course-materials"]);
+  console.log('No Section:', sections["no-section"]); // For any inputs that don't fit in the three sections
+
+  localStorage.setItem('data', JSON.stringify(sections));
+
+  window.location.href = 'syllabus.html';
+
+});
+
 
 var changeFontFamily = function (fontstyle) {
     document.getElementById("syllabus").style.fontFamily = fontstyle.value;
