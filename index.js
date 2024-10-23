@@ -1,85 +1,85 @@
 /*imports for firebase*/
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-// import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 // // Your web app's Firebase configuration
 
-// const firebaseConfig = {
+const firebaseConfig = {
 
-//   apiKey: "AIzaSyCQthMiRyG7rs8x-bX-uaOgpOCwGxwDogk",
+  apiKey: "AIzaSyCQthMiRyG7rs8x-bX-uaOgpOCwGxwDogk",
 
-//   authDomain: "syllabye-7f9b8.firebaseapp.com",
+  authDomain: "syllabye-7f9b8.firebaseapp.com",
 
-//   databaseURL: "https://syllabye-7f9b8-default-rtdb.firebaseio.com",
+  databaseURL: "https://syllabye-7f9b8-default-rtdb.firebaseio.com",
 
-//   projectId: "syllabye-7f9b8",
+  projectId: "syllabye-7f9b8",
 
-//   storageBucket: "syllabye-7f9b8.appspot.com",
+  storageBucket: "syllabye-7f9b8.appspot.com",
 
-//   messagingSenderId: "914730272947",
+  messagingSenderId: "914730272947",
 
-//   appId: "1:914730272947:web:cb70b9b64ab37d5d0fc8c6"
+  appId: "1:914730272947:web:cb70b9b64ab37d5d0fc8c6"
 
-// };
+};
 
 
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-// // Initialize Realtime Database and get a reference to the service
-// const db = getDatabase(app);
+// Initialize Realtime Database and get a reference to the service
+const db = getDatabase(app);
 
 
 
 // //testing the option to add in course materials to database
-// document.getElementById("course-submit").addEventListener('click', function(e)
-// {
-//   set(ref(db, 'materials/' + document.getElementById("course-materials").value),{
+document.getElementById("course-submit").addEventListener('click', function(e)
+{
+  set(ref(db, 'materials/' + document.getElementById("course-materials").value),{
 
   
-//     textbooks: document.getElementById("course-materials-textbooks").value,
-//     supplements: document.getElementById("course-materials-supplements").value
+    textbooks: document.getElementById("course-materials-textbooks").value,
+    supplements: document.getElementById("course-materials-supplements").value
 
-//   });
-//   alert("Data entry successful!");
-// })
+  });
+  alert("Data entry successful!");
+})
 
 //updated code to be integrated with server-side 
 // Add event listener for submitting course materials to the server
-document.getElementById("course-submit").addEventListener('click', function(e) {
-  e.preventDefault();
+// document.getElementById("course-submit").addEventListener('click', function(e) {
+//   e.preventDefault();
 
-  const textbooks = document.getElementById("course-materials-textbooks").value;
-  const supplements = document.getElementById("course-materials-supplements").value;
+//   const textbooks = document.getElementById("course-materials-textbooks").value;
+//   const supplements = document.getElementById("course-materials-supplements").value;
 
-  // if (!textbooks || !supplements) {
-  //   alert("Please enter both textbooks and supplements.");
-  //   return;
-  // }
+//   // if (!textbooks || !supplements) {
+//   //   alert("Please enter both textbooks and supplements.");
+//   //   return;
+//   // }
 
-  const courseData = {
-    textbooks: textbooks,
-    supplements: supplements
-  };
+//   const courseData = {
+//     textbooks: textbooks,
+//     supplements: supplements
+//   };
 
-  // Send the data to the server's /submit-course-materials route
-  fetch('https://syllabye-server.azurewebsites.net/submit-course-materials', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(courseData)
-  })
-  .then(response => response.json())
-  .then(data => {
-    alert("Data entry successful!");
-    console.log("Server Response:", data);
-  })
-  .catch(error => {
-    console.error("Error:", error);
-    alert("Failed to submit course materials.");
-  });
-});
+//   // Send the data to the server's /submit-course-materials route
+//   fetch('https://syllabye-server.azurewebsites.net/submit-course-materials', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(courseData)
+//   })
+//   .then(response => response.json())
+//   .then(data => {
+//     alert("Data entry successful!");
+//     console.log("Server Response:", data);
+//   })
+//   .catch(error => {
+//     console.error("Error:", error);
+//     alert("Failed to submit course materials.");
+//   });
+// });
 
 
 const url = "https://syllabye-server.azurewebsites.net"
