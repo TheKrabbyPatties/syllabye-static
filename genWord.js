@@ -1,5 +1,9 @@
+console.log (formObject.courseName + " (" + formObject.courseNumber + "-" + formObject.courseSection + ")");
+const docName = formObject.courseName + " (" + formObject.courseNumber + "-" + formObject.courseSection + ")"
+console.log(docName);
+
 document.getElementById('btn-to-word').onclick = function() {
-    Export2Doc('content', 'syllabus');
+    Export2Doc('content', docName);
 }
 
 function Export2Doc(element, filename = '') {

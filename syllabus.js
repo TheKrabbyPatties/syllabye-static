@@ -1,5 +1,6 @@
 //Pull object from localStorage and parse it to JSON
 const formObject = JSON.parse(localStorage.getItem('data'));
+console.log(formObject);
 
 //Change values for instructor info
 document.getElementById('name').innerHTML = formObject.name;
