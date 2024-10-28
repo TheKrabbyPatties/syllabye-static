@@ -70,3 +70,26 @@ button.login-btn {
 button.login-btn:hover {
     background-color: #a30505; 
 }
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button.signup-btn {
+    background-color: #7a0019; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.signup-btn:hover {
+    background-color: #a30505; 
+}

@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
-// Your web app's Firebase configuration
+// // Your web app's Firebase configuration
 
 const firebaseConfig = {
 
@@ -31,7 +31,7 @@ const db = getDatabase(app);
 
 
 
-//testing the option to add in course materials to database
+// //testing the option to add in course materials to database
 document.getElementById("course-submit").addEventListener('click', function(e)
 {
   set(ref(db, 'materials/' + document.getElementById("course-materials").value),{
@@ -43,6 +43,44 @@ document.getElementById("course-submit").addEventListener('click', function(e)
   });
   alert("Data entry successful!");
 })
+
+//updated code to be integrated with server-side 
+// Add event listener for submitting course materials to the server
+// document.getElementById("course-submit").addEventListener('click', function(e) {
+//   e.preventDefault();
+
+//   const textbooks = document.getElementById("course-materials-textbooks").value;
+//   const supplements = document.getElementById("course-materials-supplements").value;
+
+//   // if (!textbooks || !supplements) {
+//   //   alert("Please enter both textbooks and supplements.");
+//   //   return;
+//   // }
+
+//   const courseData = {
+//     textbooks: textbooks,
+//     supplements: supplements
+//   };
+
+//   // Send the data to the server's /submit-course-materials route
+//   fetch('https://syllabye-server.azurewebsites.net/submit-course-materials', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(courseData)
+//   })
+//   .then(response => response.json())
+//   .then(data => {
+//     alert("Data entry successful!");
+//     console.log("Server Response:", data);
+//   })
+//   .catch(error => {
+//     console.error("Error:", error);
+//     alert("Failed to submit course materials.");
+//   });
+// });
+
 
 const url = "https://syllabye-server.azurewebsites.net"
 
