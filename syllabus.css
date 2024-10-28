@@ -45,6 +45,17 @@ table td {
     padding-bottom: 5px;
 }
 
+.table1 {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.calendar-item {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
 .heading {
     width: 550px;
     font-size: x-large;
