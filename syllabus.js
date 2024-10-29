@@ -23,3 +23,22 @@ document.getElementById('courseDescription').innerHTML = formObject['course-info
 //Change values for course mats
 document.getElementById('textbooks').innerHTML = formObject['course-materials'].textbooks;
 document.getElementById('supplements').innerHTML = formObject['course-materials'].supplements;
+
+//Change values for course calendar
+if (formObject) {
+    const parsedData = formObject
+
+    const calendarData = parsedData["course-calendar"];
+    const tableBody = document.querySelector("#calendarTable tbody");
+    // Generate rows from calendar data
+    calendarData.forEach(entry => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td class="calendar-item">${entry.week}</td>
+            <td class="calendar-item">${entry.topic}</td>
+            <td class="calendar-item">${entry.readings}</td>
+            <td class="calendar-item">${entry.assignments}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+};
