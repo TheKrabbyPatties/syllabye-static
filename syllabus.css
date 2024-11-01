@@ -1,6 +1,7 @@
 body {
     background-color: #dcdcd7;
     margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .header-container {
@@ -18,17 +19,21 @@ body {
 }
 
 .alert-container {
-    background-color: #940731;
     width: 100%;
     padding: 10px;
 }
 
 .alert-content {
+    background-color: #940731;
     text-align: center;
     color: white;
     font-size: larger;
     font-weight: bold;
     font-family: Arial, sans-serif;
+    width: 80%;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 20px;
 }
 
 .syllabus-header {
@@ -96,6 +101,12 @@ table td {
   text-align: left;
 }
 
+.grade-item {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
 .heading {
     width: 550px;
     font-size: 16px;
@@ -127,4 +138,35 @@ table td {
     width: 200px;
     height: 50px;
     border-radius: 25px;
+}
+
+nav {
+    margin-top: -16px;
+    background-color: #940731;
+    width: 100%;
+    padding-left: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display:inline-flex;
+}
+
+nav ul li a, nav ul li button {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    padding: 8px 50px;
+    border: 0px;
+    background-color: #940731;
+}
+
+nav ul li a:hover, nav ul li button:hover {
+    background-color: #c22033;
+    transition: 0.3s;
+    box-shadow: 0px 0px 2px 1px #9c9b9d inset;
 }

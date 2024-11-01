@@ -26,10 +26,15 @@ document.getElementById('supplements').innerHTML = formObject['course-materials'
 
 //Change values for course calendar
 if (formObject) {
-    const parsedData = formObject
+    const parsedCalendarData = formObject
 
-    const calendarData = parsedData["course-calendar"];
-    const tableBody = document.querySelector("#calendarTable tbody");
+    const calendarData = parsedCalendarData["course-calendar"];
+    const calendarTableBody = document.querySelector("#calendarTable tbody");
+
+    console.log(parsedCalendarData);
+    console.log(calendarData);
+    console.log(calendarTableBody);
+
     // Generate rows from calendar data
     calendarData.forEach(entry => {
         const row = document.createElement("tr");
@@ -39,6 +44,28 @@ if (formObject) {
             <td class="calendar-item">${entry.readings}</td>
             <td class="calendar-item">${entry.assignments}</td>
         `;
-        tableBody.appendChild(row);
+        calendarTableBody.appendChild(row);
+    });
+};
+
+//Change values for grading scale
+if (formObject) {
+    const parsedGradeData = formObject
+
+    const gradeData = parsedGradeData["course-grading-scale"];
+    const gradeTableBody = document.querySelector("#gradeTable tbody");
+
+    console.log(parsedGradeData);
+    console.log(gradeData);
+    console.log(gradeTableBody);
+    
+    // Generate rows from grade data
+    gradeData.forEach(entry => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td class="grade-item">${entry.score}</td>
+            <td class="grade-item">${entry.grade}</td>
+        `;
+        gradeTableBody.appendChild(row);
     });
 };
