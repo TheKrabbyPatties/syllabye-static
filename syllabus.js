@@ -39,10 +39,10 @@ if (formObject) {
     calendarData.forEach(entry => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td class="calendar-item">${entry.week}</td>
-            <td class="calendar-item">${entry.topic}</td>
-            <td class="calendar-item">${entry.readings}</td>
-            <td class="calendar-item">${entry.assignments}</td>
+            <td style="border: 1px solid black;" class="calendar-item">${entry.week}</td>
+            <td style="border: 1px solid black;" class="calendar-item">${entry.topic}</td>
+            <td style="border: 1px solid black;" class="calendar-item">${entry.readings}</td>
+            <td style="border: 1px solid black;" class="calendar-item">${entry.assignments}</td>
         `;
         calendarTableBody.appendChild(row);
     });
@@ -63,8 +63,8 @@ if (formObject) {
     gradeData.forEach(entry => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td class="grade-item">${entry.score}</td>
-            <td class="grade-item">${entry.grade}</td>
+            <td style="border: 1px solid black;" class="grade-item">${entry.score}</td>
+            <td style="border: 1px solid black;" class="grade-item">${entry.grade}</td>
         `;
         gradeTableBody.appendChild(row);
     });
