@@ -46,12 +46,3 @@ signupForm.addEventListener('submit', (e) => {
     e.currentTarget.reset();
 })
 
-
-//auth.onAuthStateChanged(user => {
-//    if (user) {
-//      console.log('User is signed in:', user);
-//    } else {
-//      console.log('No user signed in');
-//    }
-//  });
-  
