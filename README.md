@@ -2,7 +2,7 @@
 This contains the static-side contents relating to our SyllaBye Application.
 
 ## Author(s)
-Josh Brown, Kevin Danowski, Olivia Adamic, Logan Prasczewicz, Emilio Vilchis, Kevin Zamudio, and Vy Nguyen Khanh Le
+Josh Brown, Kevin Danowski, Olivia Adamic, Logan Prasczewicz, Emilio Vilchis, Kevin Zamudio, Vy Nguyen Khanh Le, and Bryan Avalos
 
 ## Credits
 - Credits to GitHub and GitPages for hosting the current repositories.
