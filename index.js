@@ -1,6 +1,6 @@
 /*imports for firebase*/
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, set, get, connectDatabaseEmulator} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { getDatabase, ref, set, get} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 //this is necessary for the .env file to work 
 require('dotenv').config();
@@ -33,7 +33,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Realtime Database and get a reference to the service
 const db = getDatabase(app);
 
-connectDatabaseEmulator(db, '127.0.0.1', 4002); // Adjust port as needed
+// connectDatabaseEmulator(db, '127.0.0.1', 4002); // Adjust port as needed
 
 
 // //testing the option to add in course materials to database
