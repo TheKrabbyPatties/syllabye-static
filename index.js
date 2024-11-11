@@ -1,24 +1,28 @@
 /*imports for firebase*/
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { getDatabase, ref, set, get, connectDatabaseEmulator} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+//this is necessary for the .env file to work 
+require('dotenv').config();
+
 
 // // Your web app's Firebase configuration
-
+//this is pulling the data from the .env file 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyCQthMiRyG7rs8x-bX-uaOgpOCwGxwDogk",
+  apiKey : process.env.API_KEY,
 
-  authDomain: "syllabye-7f9b8.firebaseapp.com",
+  authDomain : process.env.AUTH_DOMAIN,
 
-  databaseURL: "https://syllabye-7f9b8-default-rtdb.firebaseio.com",
+  databaseURL : process.env.DATABASE_URL, 
 
-  projectId: "syllabye-7f9b8",
+  projectId : process.env.PROJECT_ID,
 
-  storageBucket: "syllabye-7f9b8.appspot.com",
+  storageBucket : process.env.STORAGE_BUCKET, 
 
-  messagingSenderId: "914730272947",
+  messagingSenderId : process.env.MESSAGING_SENDER_ID,
 
-  appId: "1:914730272947:web:cb70b9b64ab37d5d0fc8c6"
+  appId : process.env.APP_ID
 
 };
 
@@ -29,7 +33,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Realtime Database and get a reference to the service
 const db = getDatabase(app);
 
-connectDatabaseEmulator(db, 'localhost', 9000); // Adjust port as needed
+connectDatabaseEmulator(db, '127.0.0.1', 4002); // Adjust port as needed
 
 
 // //testing the option to add in course materials to database
@@ -50,6 +54,7 @@ document.getElementById("course-submit").addEventListener('click', function(e) {
   set(ref(db, 'materials/' + document.getElementById("course-materials").value), {
     textbooks: document.getElementById("course-materials-textbooks").value,
     supplements: document.getElementById("course-materials-supplements").value
+
   })
   .then(() => {
     console.log("Data written to Firebase successfully!");
@@ -60,6 +65,10 @@ document.getElementById("course-submit").addEventListener('click', function(e) {
     alert("Failed to write data to Firebase.");
   });
 });
+
+console.log("Textbooks:", document.getElementById("course-materials-textbooks").value);
+console.log("Supplements:", document.getElementById("course-materials-supplements").value);
+
 
 //updated code to be integrated with server-side 
 // Add event listener for submitting course materials to the server
