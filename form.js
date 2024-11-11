@@ -34,11 +34,12 @@ form.addEventListener('submit', (e) => {
       },
       "course-materials": {},
       "course-calendar": {},
+      "course-grading-scale": {},
       "no-section": {} // To catch any non-sectioned values
   };
 
   // Extracting calendar data from the semester calendar table
-  const calendarTable = document.querySelector('#editableGrid tbody');
+  const calendarTable = document.querySelector('#course-calendar #editableGrid tbody');
   const calendarRows = calendarTable.querySelectorAll('tr');
   let calendarData = [];
 
@@ -57,6 +58,23 @@ form.addEventListener('submit', (e) => {
   });
 
   sections["course-calendar"] = calendarData;
+
+  // Extracting grade data from the semester grading scale table
+  const gradeTable = document.querySelector('#course-grading-scale #editableGrid tbody');
+  const gradeRows = gradeTable.querySelectorAll('tr');
+  let gradeData = [];
+  
+  gradeRows.forEach((row, index) => {
+    const score = row.cells[0].textContent;
+    const grade = row.cells[1].textContent;
+
+    gradeData.push({
+      score: score,
+      grade: grade
+    });
+  });
+
+  sections["course-grading-scale"] = gradeData;
 
   entries.forEach(([key, value]) => {
       if (key === "day") { // Makes sure to show all selected days and not just the last one
@@ -84,6 +102,7 @@ form.addEventListener('submit', (e) => {
   console.log('Course Information:', sections["course-information"]);
   console.log('Course Materials:', sections["course-materials"]);
   console.log('Course Calendar:', sections["course-calendar"]);
+  console.log('Course Grading Scale:', sections["course-grading-scale"]);
   console.log('No Section:', sections["no-section"]); // For any inputs that don't fit in the three sections
 
   localStorage.setItem('data', JSON.stringify(sections));
@@ -91,6 +110,8 @@ form.addEventListener('submit', (e) => {
   window.location.href = 'syllabus.html';
 
 });
+
+
 
 
 var changeFontFamily = function (fontstyle) {

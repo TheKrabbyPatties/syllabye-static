@@ -56,11 +56,3 @@ signInWithEmailAndPassword(auth, email, password)
 })
 
 
-//auth.onAuthStateChanged(user => {
-//    if (user) {
-//      console.log('User is signed in:', user);
-//    } else {
-//      console.log('No user signed in');
-//    }
-//  });
-  
