@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <title>Preview</title>
     <link rel="stylesheet" href="syllabus.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
@@ -13,14 +20,29 @@
         </div>
     </div>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="create.html">Create Syllabus</a></li>
-            <li><a href="suggestion.html">Suggestion Box</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SyllaBye</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">              
+                    <li><a class="nav-link" href="index.html">Home</a></li>
+                    <li><a class="nav-link" href="create.html">Create Syllabus</a></li>                
+                    <li class="nav-item"><a class="nav-link" href="suggestion.html">Suggestion Box</a></li>
+                    <li><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="nav-link" href="login.html">Login/Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>    
 
     <div class="alert-container">
         <div class="alert-content">
@@ -93,13 +115,13 @@
                         <td class="data" id="creditHours" style="font-size: 14px;"></td>
                     </tr>
                     <tr>
-                        <td class="subhead"><b style="font-size: 14px;">Course Meeting Times:</b></td>
-                        <td class="data" id="meetingTimes" style="font-size: 14px;"></td>
+                        <td class="subhead"><b style="font-size: 14px;">Course Meeting Days/Times:</b></td>
+                        <td class="data" id="meetingDaysTimes" style="font-size: 14px;"></td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td class="subhead"><b style="font-size: 14px;">Course Meeting Days:</b></td>
                         <td class="data" id="days" style="font-size: 14px;"></td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td class="subhead"><b style="font-size: 14px;">Course Description:</b></th>
                     </tr>
