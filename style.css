@@ -71,7 +71,15 @@ header {
     margin: auto;
     margin-bottom: 20px;
     padding: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
+
+.home:hover {
+    background-color: #80052e;
+    transform: translateY(3px);
+}
+
 
 nav {
     margin-top: -16px;
