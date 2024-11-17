@@ -2,14 +2,22 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCQthMiRyG7rs8x-bX-uaOgpOCwGxwDogk",
-    authDomain: "syllabye-7f9b8.firebaseapp.com",
-    databaseURL: "https://syllabye-7f9b8-default-rtdb.firebaseio.com",
-    projectId: "syllabye-7f9b8",
-    storageBucket: "syllabye-7f9b8.appspot.com",
-    messagingSenderId: "914730272947",
-    appId: "1:914730272947:web:cb70b9b64ab37d5d0fc8c6"
-  };
+
+  apiKey : process.env.API_KEY,
+
+  authDomain : process.env.AUTH_DOMAIN,
+
+  databaseURL : process.env.DATABASE_URL, 
+
+  projectId : process.env.PROJECT_ID,
+
+  storageBucket : process.env.STORAGE_BUCKET, 
+
+  messagingSenderId : process.env.MESSAGING_SENDER_ID,
+
+  appId : process.env.APP_ID
+
+};
 
 
 // Initialize Firebase

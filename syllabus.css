@@ -140,7 +140,7 @@ table td {
     border-radius: 25px;
 }
 
-nav {
+/* nav {
     margin-top: -16px;
     background-color: #940731;
     width: 100%;
@@ -169,4 +169,18 @@ nav ul li a:hover, nav ul li button:hover {
     background-color: #c22033;
     transition: 0.3s;
     box-shadow: 0px 0px 2px 1px #9c9b9d inset;
+} */
+
+.navbar-nav {
+    text-align: center;
+    padding-left: 0px;
+    background-color: #940731;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-link {
+    padding-left: 25px;
+    padding-right: 25px;
 }

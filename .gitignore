@@ -6,4 +6,6 @@ genWord.js
 login.js
 signup.js
 tempCodeRunnerFile.js
+# environment variables
+.env
 ./
