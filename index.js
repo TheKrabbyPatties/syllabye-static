@@ -53,7 +53,7 @@ import { getDatabase, ref, set, get} from "https://www.gstatic.com/firebasejs/9.
 async function fetchFirebaseConfig() {
   //this is for local testing as long as the port is 3000 for the server
   // const response = await fetch('http://localhost:3000/firebase-config')
-  const response = await fetch('')
+  const response = await fetch('https://syllabye-server.azurewebsites.net/firebase-config')
   if (!response.ok) {
     throw new Error('Failed to fetch Firebase config');
   }
