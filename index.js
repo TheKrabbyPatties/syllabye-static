@@ -2,36 +2,36 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getDatabase, ref, set, get} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
-//this is necessary for the .env file to work 
-require('dotenv').config();
+// //this is necessary for the .env file to work 
+// require('dotenv').config();
 
 
-// // Your web app's Firebase configuration
-//this is pulling the data from the .env file 
-const firebaseConfig = {
+// // // Your web app's Firebase configuration
+// //this is pulling the data from the .env file 
+// const firebaseConfig = {
 
-  apiKey : process.env.API_KEY,
+//   apiKey : process.env.API_KEY,
 
-  authDomain : process.env.AUTH_DOMAIN,
+//   authDomain : process.env.AUTH_DOMAIN,
 
-  databaseURL : process.env.DATABASE_URL, 
+//   databaseURL : process.env.DATABASE_URL, 
 
-  projectId : process.env.PROJECT_ID,
+//   projectId : process.env.PROJECT_ID,
 
-  storageBucket : process.env.STORAGE_BUCKET, 
+//   storageBucket : process.env.STORAGE_BUCKET, 
 
-  messagingSenderId : process.env.MESSAGING_SENDER_ID,
+//   messagingSenderId : process.env.MESSAGING_SENDER_ID,
 
-  appId : process.env.APP_ID
+//   appId : process.env.APP_ID
 
-};
+// };
 
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
 
 // Initialize Realtime Database and get a reference to the service
-const db = getDatabase(app);
+// const db = getDatabase(app);
 
 // connectDatabaseEmulator(db, '127.0.0.1', 4002); // Adjust port as needed
 
@@ -48,6 +48,29 @@ const db = getDatabase(app);
 //   });
 //   alert("Data entry successful!");
 // })
+
+// Fetch Firebase config from the server
+async function fetchFirebaseConfig() {
+  const response = await fetch('/firebase-config');
+  if (!response.ok) {
+    throw new Error('Failed to fetch Firebase config');
+  }
+  return await response.json();
+}
+
+// Initialize Firebase with the fetched config
+fetchFirebaseConfig()
+  .then((config) => {
+    const app = initializeApp(config);
+    const db = getDatabase(app);
+
+    // Rest of your Firebase logic
+    console.log('Firebase initialized successfully.');
+  })
+  .catch((error) => {
+    console.error('Error initializing Firebase:', error);
+  });
+
 
 document.getElementById("course-submit").addEventListener('click', function(e) {
   console.log("Submit button clicked"); // Log statement
