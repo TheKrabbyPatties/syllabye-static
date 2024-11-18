@@ -1,23 +1,118 @@
 const form = document.querySelector('.form');
 
+// Leaving old code for saving JSON for now
+//form.addEventListener('submit', (e) => {
+//    e.preventDefault();
+//    const formData = new FormData(e.currentTarget);
+//    const entries = [...formData.entries()];
+//    console.log(entries);
+//
+//    const formObject = Object.fromEntries(formData);
+//    formObject.day = formData.getAll('day')
+//    console.log(formObject);
+//
+//    e.currentTarget.reset();
+//
+//    console.log(formObject.name)
+//
+//    localStorage.setItem('data', JSON.stringify(formObject));
+//
+//    //window.location.href = 'syllabus.html'
+//})
+
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const entries = [...formData.entries()];
-    console.log(entries);
+  e.preventDefault();
 
-    const formObject = Object.fromEntries(formData);
-    formObject.day = formData.getAll('day')
-    console.log(formObject);
+  const formData = new FormData(e.currentTarget);
+  const entries = [...formData.entries()];
 
-    e.currentTarget.reset();
+  // Create the sections
+  const sections = {
+      "instructor-info": {},
+      "course-information": {
+        "day": [] // Day needs to be initialized so is not "undefined" if nothing selected
+      },
+      "course-materials": {},
+      "course-calendar": {},
+      "course-grading-scale": {},
+      "no-section": {} // To catch any non-sectioned values
+  };
 
-    console.log(formObject.name)
+  // Extracting calendar data from the semester calendar table
+  const calendarTable = document.querySelector('#course-calendar #editableGrid tbody');
+  const calendarRows = calendarTable.querySelectorAll('tr');
+  let calendarData = [];
 
-    localStorage.setItem('data', JSON.stringify(formObject));
+  calendarRows.forEach((row, index) => {
+    const week = row.cells[0].textContent;
+    const topic = row.cells[1].textContent;
+    const readings = row.cells[2].textContent;
+    const assignments = row.cells[3].textContent;
 
-    window.location.href = 'syllabus.html'
-})
+    calendarData.push({
+      week: week,
+      topic: topic,
+      readings: readings,
+      assignments: assignments
+    });
+  });
+
+  sections["course-calendar"] = calendarData;
+
+  // Extracting grade data from the semester grading scale table
+  const gradeTable = document.querySelector('#course-grading-scale #editableGrid tbody');
+  const gradeRows = gradeTable.querySelectorAll('tr');
+  let gradeData = [];
+  
+  gradeRows.forEach((row, index) => {
+    const score = row.cells[0].textContent;
+    const grade = row.cells[1].textContent;
+
+    gradeData.push({
+      score: score,
+      grade: grade
+    });
+  });
+
+  sections["course-grading-scale"] = gradeData;
+
+  entries.forEach(([key, value]) => {
+      if (key === "day") { // Makes sure to show all selected days and not just the last one
+          const selectedDays = formData.getAll('day');
+          sections["course-information"]["day"] = selectedDays;
+      } else {
+          // Find the input element using the key (name)
+          const inputElement = e.currentTarget.querySelector(`[name="${key}"]`);
+
+          if (inputElement) {
+              
+              const sectionId = inputElement.closest('.section')?.id; // Finds the proper section for each value
+
+              if (sections[sectionId]) { // Adds the values to the proper sections
+                  sections[sectionId][key] = value;
+              } else {
+                  sections["no-section"][key] = value;
+              }
+          }
+      }
+  });
+
+  // Console log for testing purposes, must comment out "window.location.href = 'syllabus.html'" to see
+  console.log('Instructor Info:', sections["instructor-info"]);
+  console.log('Course Information:', sections["course-information"]);
+  console.log('Course Materials:', sections["course-materials"]);
+  console.log('Course Calendar:', sections["course-calendar"]);
+  console.log('Course Grading Scale:', sections["course-grading-scale"]);
+  console.log('No Section:', sections["no-section"]); // For any inputs that don't fit in the three sections
+
+  localStorage.setItem('data', JSON.stringify(sections));
+
+  window.location.href = 'syllabus.html';
+
+});
+
+
+
 
 var changeFontFamily = function (fontstyle) {
     document.getElementById("syllabus").style.fontFamily = fontstyle.value;
