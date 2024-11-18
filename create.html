@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
     <title>Create Syllabus</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
@@ -12,16 +16,30 @@
     
     <header>
         <h1>SyllaBye</h1>
-        
     </header>
-    
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="create.html">Create Syllabus</a></li>
-            <li><a href="suggestion.html">Suggestion Box</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SyllaBye</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">              
+                    <li><a class="nav-link" href="index.html">Home</a></li>
+                    <li><a class="nav-link" href="create.html">Create Syllabus</a></li>                
+                    <li class="nav-item"><a class="nav-link" href="suggestion.html">Suggestion Box</a></li>
+                    <li><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="nav-link" href="login.html">Login/Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
     
     <div class="container">
@@ -120,11 +138,11 @@
                             <input class="field" id="credit-hours" name="creditHours" type="text"><br>
                         </label>
                         
-                        <label class="label" for="meeting-times">Course Meeting Times
-                            <input class="field" id="meeting-times" name="meetingTimes" type="text"><br>
+                        <label class="label" for="meeting-days-times">Course Meeting Days/Times
+                            <input class="field" id="meeting-days-times" name="meetingDaysTimes" type="text"><br>
                         </label>
             
-                        <div>
+                        <!-- <div>
                             <p class="p1">Course Meeting Days</p>
                             <div class="days">
                                 <label class="checkbox" for="monday">Monday
@@ -148,7 +166,7 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                        </div><br>
+                        </div><br> -->
 
                         <!--Section for course term-->
                         <div>
@@ -173,6 +191,8 @@
                         <label class="label" for="course-description">Course Description
                             <textarea class="field" id="course-description" name="courseDescription" style="width: 300px; height: 100px;"></textarea><br>
                         </label>
+
+                        <label class="label">Access the Lewis University <i>2024-2025</i> course catalog <a href="https://lewisu.smartcatalogiq.com/en/undergrad-2024-2025/undergrad-2024-2025/course-descriptions/" class="catalog-link" style="color: blue; text-decoration: underline;">here</a>.</label><br>
                         
                     </div>
                     

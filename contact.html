@@ -3,114 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <title>Contact Page</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/syllabye-static/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
 <header>
     <h1>SyllaBye</h1>
-    
 </header>
 
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="create.html">Create Syllabus</a></li>
-        <li><a href="suggestion.html">Suggestion Box</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-    </ul>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">SyllaBye</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">              
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="create.html">Create Syllabus</a></li>                
+                <li class="nav-item"><a class="nav-link" href="suggestion.html">Suggestion Box</a></li>
+                <li><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="nav-link" href="login.html">Login/Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
-<div class="container">
-    <h2>Contact Us</h2>
-    <div class="link">
-        <ul>
-            <li>Olivia Adamic: <a href = "mailto: oliviaradamic@lewisu.edu">oliviaradamic@lewisu.edu</a></li>
-            <br>
-            <li>Joshua Brown: <a href = "mailto: joshuaabrown@lewisu.edu">joshuaabrown@lewisu.edu</a></li>
-            <br>
-            <li>Kevin Danowski: <a href = "mailto: kevinadanowski@lewisu.edu">kevinadanowski@lewisu.edu</a></li>
-            <br>
-            <li>Logan Prasczewicz: <a href = "mailto: logandprasczewicz@lewisu.edu">logandprasczewicz@lewisu.edu</a></li>
-            <br>
-            <li>Emilio Vilchis: <a href = "mailto: emiliolvilchis@lewisu.edu">emiliolvilchis@lewisu.edu</a></li>
-            <br>
-            <li>Kevin Zamudio: <a href = "mailto: kevinizamudio@lewisu.edu">kevinizamudio@lewisu.edu</a></li>
-            <br>
-            <li>Vy Nguyen Khanh Le: <a href = "mailto: vykle@lewisu.edu">vykle@lewisu.edu</a></li>
-            <br>
-            <li>Nick Krzysiak: <a href = "mailto: nicholasakrzysiak@lewisu.edu">nicholasakrzysiak@lewisu.edu</a></li>
-            <br>
-            <li>Jaiden Leonard: <a href = "mailto: jaidentleonard@lewisu.edu">jaidentleonard@lewisu.edu</a></li>
-            <br>
-            <li>Bryan Avalos: <a href = "mailto: bryanhavalos@lewisu.edu">bryanhavalos@lewisu.edu</a></li>
-        </ul>
+<div class="container text-center ">
+    <!-- Container for the header of the contacts page -->
+    <div class="container-fluid text-center" style="margin:40px">
+    <h1>About Us</h1>
+    <h3>
+    Please take a few minutes to learn more about each of the developers who have contributed to this 
+    project and feel free to reach out and contact any of us for more information!
+    </h3>
     </div>
 
-    <h2>About Us</h2>
-    <div class="small-container">
-        <img src="assets/olivia-1.png" alt="Olivia">
-        <p>Olivia Adamic is a junior pursuing a major in computer science, minors in mathematics 
+    <!-- Container holding Olivia's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/olivia-1.png" alt="Olivia">
+            <p>Olivia Adamic</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Olivia Adamic is a junior pursuing a major in computer science, minors in mathematics 
             and data science, and a concentration in mobile computing. Beyond her studies, she enjoys
-            taking voice lessons, knitting and crocheting, gardening, and reading.</p>
+            taking voice lessons, knitting and crocheting, gardening, and reading.
+            </p>
+            <a href = "mailto: oliviaradamic@lewisu.edu">oliviaradamic@lewisu.edu</a>
+        </div>
     </div>
-    <div class="small-container">
-        <img src="assets/josh.png" alt="Josh">
-        <p>Joshua Brown is a sophomore pursuing a major in computer science. In his free time
+
+    <!-- Container holding Joshua's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/josh.png" alt="Josh">
+            <p>Joshua Brown</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Joshua is a sophomore pursuing a major in computer science. In his free time
             he enjoys playing guitar, reading, and playing video games.
-        </p>
+            </p>
+            <a href = "mailto: joshuaabrown@lewisu.edu">joshuaabrown@lewisu.edu</a>
+        </div>
     </div>
-    <div class="small-container">
-        <img src="assets/kevin.png" alt="Kevin D">
-        <p>Kevin Danowski is a sophomore pursuing a major in computer science. Outside of computer science, 
-            he participates in Lewis University's track and field team and enjoys playing video games. 
-        </p>
+
+    <!-- Container holding Kevin's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/kevin.png" alt="Kevin D">
+            <p>Kevin Danowski</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Kevin is a sophomore pursuing a major in computer science. Outside of computer science, 
+            he participates in Lewis University's track and field team and enjoys playing video games.
+            </p>
+            <a href = "mailto: kevinadanowski@lewisu.edu">kevinadanowski@lewisu.edu</a>
+        </div>
     </div>
-    <div class="small-container">
-        <img src="assets/logan.png" alt="Logan">
-        <p>Logan Prasczewicz is a junior pursuing a major in computer science and a concentration in 
-            artificial intelligence. In his free time, he enjoys going on roadtrips, playing video games, and watching sports.
-        </p>
+
+    <!-- Container holding Logan's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/logan.png" alt="Logan">
+            <p>Logan Prasczewicz</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Logan is a junior pursuing a major in computer science and a concentration in artificial intelligence.
+            In his free time, he enjoys going on roadtrips, playing video games, and watching sports.
+            </p>
+            <a href = "mailto: logandprasczewicz@lewisu.edu">logandprasczewicz@lewisu.edu</a>
+        </div>
     </div>
-    <div class="small-container">
-        <img src="assets/Emilio.png" alt="Emilio" style="width:193px;height:300px;">
-        <p>Emilio Vilchis is a junior pursuing a major in computer science. He enjoys spending time with family and friends in addition to 
-            going bowling and playing video games. 
-        </p>
+
+    <!-- Container holding Emilio's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/Emilio.png" alt="Emilio" style="width:193px;height:300px">
+            <p>Emilio Vichis</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Emilio is a junior pursuing a major in computer science. He enjoys spending time with family and friends
+            in addition to going bowling and playing video games.
+            </p>
+            <a href = "mailto: emiliolvilchis@lewisu.edu">emiliolvilchis@lewisu.edu</a>
+        </div>
     </div>
-    <div class="small-container">
-        <img src="assets/other-kevin.png" alt="Kevin Z">
-        <p>Kevin Zamudio is a junior pursuing a major in computer science. Outside of his studies, he enjoys reading, gaming, and also practicing MMA.
-        </p>
+    
+    <!-- Container holding Kevin's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/other-kevin.png" alt="Kevin Z">
+            <p>Kevin Zamudio</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Kevin is a junior pursuing a major in computer science. Outside of his studies, 
+            he enjoys reading, gaming, and also practicing MMA.
+            </p>
+            <a href = "mailto: kevinizamudio@lewisu.edu">kevinizamudio@lewisu.edu</a>
+        </div>
     </div>
-    <div class="small-container">
-        <img src="assets/vykle.jpg" alt="Vy">
-        <p>Vy Le is a senior pursuing a major in computer science. Outside of her studies, she enjoys listening to music, watching animes, 
+
+    <!-- Container holding Vy's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/vykle.jpg" alt="Vy">
+            <p>Vy Le</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Vy Le is a senior pursuing a major in computer science. Outside of her studies, she enjoys listening to music, watching animes, 
             besides her biggest hobby which is traveling.
-        </p>
+            </p>
+            <a href = "mailto: vykle@lewisu.edu">vykle@lewisu.edu</a>
+        </div>
     </div>
-    <div class="small-container">
-        <img src="assets/nick.png" alt="nick">
-        <p>Nick is a Senior pursuing a major in computer science. Some of his hobbies include cars, camping, and going to the gym.
-        </p>
+    
+    <!-- Container holding Nick's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/nick.png" alt="Nick">
+            <p>Nick Krzysiak</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Nick is a Senior pursuing a major in computer science. Some of his hobbies include cars, camping, and going to the gym.
+            </p>
+            <a href = "mailto: nicholasakrzysiak@lewisu.edu">nicholasakrzysiak@lewisu.edu</a>
+        </div>
     </div>
-    <div class="small-container">
-        <img src="assets/jaiden.jpg" alt="jaiden">
-        <p>Jaiden is a junior majoring in Computer science with a focus on software engineering and development. He enjoys playing videogames
-            and working on cars.
-        </p>
+
+    <!-- Container holding Jaiden's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/jaiden.jpg" alt="Jaiden">
+            <p>Jaiden Leonard</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Jaiden is a junior majoring in Computer science with a focus on software engineering and development. 
+            He enjoys playing videogames and working on cars.
+            </p>
+            <a href = "mailto: jaidentleonard@lewisu.edu">jaidentleonard@lewisu.edu</a>
+        </div>
     </div>
-    <div class="small-container">
-        <img src="assets/bryan.png" alt="Bryan">
-        <p>Bryan is a senior pursuing a double major in computer science and forensic crimimal investigation. In his free time, he enjoys watching baseball, working on cars, playing videogames,
-            and learning about technology.
-        </p>
+
+    <!-- Container holding Bryan's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/bryan.png" alt="Bryan">
+            <p>Bryan Avalos</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Bryan is a senior pursuing a double major in computer science and forensic crimimal investigation. 
+            In his free time, he enjoys watching baseball, working on cars, playing videogames, and learning about technology.
+            </p>
+            <a href = "mailto: bryanhavalos@lewisu.edu">bryanhavalos@lewisu.edu</a>
+        </div>
     </div>
+    
+    <!-- Container holding Irving's information -->
+    <div class="small-container text-center">
+        <div class="col-sm-4">
+            <img src="assets/Irving.png" alt="Irving">
+            <p>Irving Sanchez</p>
+        </div>
+        <div class="col-sm-8">
+            <p>
+            Irving is a senior pursuing a major in computer science with a minor in math and thereafter pursuing his masters in 
+            computer engineering. On his free time he enjoys playing with with his dogs groot and peter, reading comic books and 
+            invites anybody to play a game of chess or magic the gathering with him.
+            </p>
+            <a href = "mailto: IrvingFSanchez@lewisu.edu">IrvingFSanchez@lewisu.edu</a>
+        </div>
+    </div>
+
 </div>
-
-
 
 </body>
 </html>
