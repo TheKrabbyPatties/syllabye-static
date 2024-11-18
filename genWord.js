@@ -1,5 +1,6 @@
 console.log (formObject['course-information'].courseName + " (" + formObject['course-information'].courseNumber + "-" + formObject['course-information'].courseSection + ")");
 const docName = formObject['course-information'].courseName + " (" + formObject['course-information'].courseNumber + "-" + formObject['course-information'].courseSection + ")"
+ 
 console.log(docName);
 
 document.getElementById('btn-to-word').onclick = function() {
