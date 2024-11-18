@@ -3,15 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication Success</title>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style3.css">
 </head>
-<body> 
-    <h1>Login/Signup Successfully</h1> 
-    <hr>
-    <div id="authStatus">Checking login status...</div>
-    <hr>
-    <button type="submit" class="logout-btn">Log out</button>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>SyllaBye</h1>
+            <div class="logout-btn">
+                <button id="logoutBtn" type = "submit">Logout</button>
+            </div>
+        </div>
+    </header>
 
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="create.html">Create Syllabus</a></li>
+            <li><a href="suggestion.html">Suggestion Box</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><button onclick="ping()">Server Test Ping</button></li>
+        </ul>
+    </nav>
+
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        <div class="profile-card">
+            <img src="" alt="Profile Picture" class="profile-pic" id="profilePic">
+            <div class="profile-info">
+                <h2 id="authStatus">Checking login status...</h2>
+                <p>Bio: <span id="userBio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></p>
+                <button class="edit-btn">Edit Profile</button>
+            </div>
+        </div>
+    </div>
 </body>
 <script type="module" src="logout.js"></script>
 <script type="module" src="auth-listener.js"></script>
