@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /* padding: 0; */
+    background-color: #dcdcd7;
+    color: #242122;
+}
+
+header {
+    background-color: #c22033;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header-content {
+    width: 100%;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+}
+  
+.logout-btn button {
+    background-color: #b3b3b3;
+    color: black;
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+  
+.logout-btn button:hover {
+    background-color: #6e6f71;
+    color: white;
+}
+
+nav {
+    margin-top: -16px;
+    background-color: #940731;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display:inline-flex;
+}
+
+nav ul li a, nav ul li button {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    padding: 8px 50px;
+    border: 0px;
+    background-color: #940731;
+}
+
+nav ul li a:hover, nav ul li button:hover {
+    background-color: #c22033;
+    transition: 0.3s;
+    box-shadow: 0px 0px 2px 1px #9c9b9d inset;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid #940731;
+}
+
+.profile-info h2 {
+    color: #940731;
+}
+
+.profile-info p {
+    margin: 8px 0;
+}
+
+.edit-btn {
+    padding: 8px 16px;
+    background-color: #940731;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #c22033;
+}
+
+

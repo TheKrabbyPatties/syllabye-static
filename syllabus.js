@@ -17,7 +17,7 @@ document.getElementById('courseNumber').innerHTML = formObject['course-informati
 document.getElementById('term').innerHTML = formObject['course-information'].term + " " + formObject['course-information'].year;
 document.getElementById('creditHours').innerHTML = formObject['course-information'].creditHours;
 document.getElementById('meetingDaysTimes').innerHTML = formObject['course-information'].meetingDaysTimes;
-// document.getElementById('days').innerHTML = formObject['course-information'].day;
+//document.getElementById('days').innerHTML = formObject['course-information'].day;
 document.getElementById('courseDescription').innerHTML = formObject['course-information'].courseDescription;
 
 //Change values for course mats

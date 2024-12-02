@@ -18,11 +18,9 @@
 </head>
 
 <body>
-    <div class="header-container">
-        <div class="header-content">
-            <p>SyllaBye</p>
-        </div>
-    </div>
+    <header>
+        <h1>SyllaBye</h1>
+    </header>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -48,7 +46,7 @@
         </div>
     </nav>    
 
-    <div class="alert-container">
+    <div class="container text-center" style="margin-top: 50px; margin-bottom: 50px;">
         <div class="alert-content">
             <p>Your syllabus has been generated!</p>
             <p>See the preview below:</p>
@@ -56,7 +54,7 @@
     </div>
 
 
-    <div class="syllabus-container" id="content">
+    <div class="container" id="content" style="margin-bottom: 50px;">
         <div class="syllabus">
             <!--THIS DIV IS FOR THE BANNER AND THE MAIN INFO-->
             <div class="syllabus-header">
@@ -75,7 +73,7 @@
             
             <!--THIS IS WHERE THE SYLLABUS CONTENT STARTS-->
             <div>
-                <table>
+                <table class="table-responsive" style="border: 0px;">
                     <!--START OF INSTRUCTOR INFORMATION-->
                     <tr>
                         <td class="heading"><b style="font-size: 18px; font-weight: bolder;">Instructor Information</b></th>
@@ -154,10 +152,10 @@
                     <table style="margin-bottom: 20px; margin-top: 20px;" id="calendarTable" class="table1">
                         <thead>
                             <tr>
-                                <th style="border: 1px solid black;" class="calendar-item">Week</th>
-                                <th style="border: 1px solid black;" class="calendar-item">Topic</th>
-                                <th style="border: 1px solid black;" class="calendar-item">Readings</th>
-                                <th style="border: 1px solid black;" class="calendar-item">Assignments</th>
+                                <th style="border: 1px solid black; font-size: 14px;" class="calendar-item">Week</th>
+                                <th style="border: 1px solid black; font-size: 14px" class="calendar-item">Topic</th>
+                                <th style="border: 1px solid black; font-size: 14px" class="calendar-item">Readings</th>
+                                <th style="border: 1px solid black; font-size: 14px" class="calendar-item">Assignments</th>
                             </tr>
                         </thead>
                         <tbody style="border: 1px solid black;">
@@ -172,8 +170,8 @@
                     <table style="width: 25%; margin-bottom: 20px; margin-top: 20px;" id="gradeTable" class="table1">
                         <thead>
                             <tr>
-                                <th style="border: 1px solid black;" class="grade-item">Score</th>
-                                <th style="border: 1px solid black;" class="grade-item">Grade</th>
+                                <th style="border: 1px solid black; font-size: 14px" class="grade-item">Score</th>
+                                <th style="border: 1px solid black; font-size: 14px" class="grade-item">Grade</th>
                             </tr>
                         </thead>
                         <tbody style="border: 1px solid black;">
@@ -185,7 +183,7 @@
                     <!--START OF ACADEMIC INFORMATION-->
                     <tr>
                         <td class="heading"><b style="font-size: 18px; font-weight: bolder;">Academic Information for Students</b></th>
-                    </tr>
+                    </tr><br>
                     
                     <tr>
                         <td class="subhead"><b style="font-size: 14px;">Requests for Reasonable Accomodations:</b></td>
@@ -216,7 +214,8 @@
                     <!--START OF CAMPUS RESOURCES-->
                     <tr>
                         <td class="heading"><b style="font-size: 18px; font-weight: bolder;">Student Health, Wellness, and Community Standards</b></th>
-                    </tr>
+                    </tr><br>
+
                     <tr>
                         <td class="subhead"><b style="font-size: 14px;">Sanctified Zone:</b></td>
                     </tr>
@@ -317,13 +316,14 @@
                     <!--START OF ADDITIONAL INFORMATION-->
                     <tr>
                         <td class="heading"><b style="font-size: 18px; font-weight: bolder;">Additional Policies and Resources</b></th>
-                    </tr>
+                    </tr><br>
+
                     <tr>
                         <td class="subhead"><b style="font-size: 14px;">University Copyright and Intellectual Property Guidelines:</b></td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <p style="font-size: 14px;">
+                            <p style="font-size: 14px; word-wrap: break-word;">
                                 The University Copyright and Intellectual Property Guidelines can be found at https://www.lewisu.edu/osp/pdf/Intellectual%20Property%20Rights%20Policy.pd
                             </p>
                         </td>

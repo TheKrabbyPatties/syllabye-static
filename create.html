@@ -96,8 +96,8 @@
             </div><br><br> -->
 
             <div id="syllabus">
-                <form class="form" id="form">
-                    <div id="instructor-info" class="section">
+                <form class="center-block" id="form">
+                    <div id="instructor-info" class="form-group">
                         <h1>Instructor Info</h1><br>
                         <label class="label" for="instructor-name">Instructor's Full Name
                             <input class="field" id="instructor-name" name="name" type="text" autocomplete="name"><br>
@@ -119,7 +119,7 @@
                         </label>
                     </div>
         
-                    <div id="course-information" class="section">
+                    <div id="course-information" class="form-group">
                         <!--Section for course info-->
                         <h1>Course Information</h1><br>
                         <label class="label" for="course-name">Course Name
@@ -192,12 +192,12 @@
                             <textarea class="field" id="course-description" name="courseDescription" style="width: 300px; height: 100px;"></textarea><br>
                         </label>
 
-                        <label class="label">Access the Lewis University <i>2024-2025</i> course catalog <a href="https://lewisu.smartcatalogiq.com/en/undergrad-2024-2025/undergrad-2024-2025/course-descriptions/" class="catalog-link" style="color: blue; text-decoration: underline;">here</a>.</label><br>
+                        <p class="label" style="text-wrap: wrap; font-size: 11px;">Access the Lewis University <i>2024-2025</i> course catalog <a href="https://lewisu.smartcatalogiq.com/en/undergrad-2024-2025/undergrad-2024-2025/course-descriptions/" class="catalog-link" style="color: blue; text-decoration: underline;">here</a>.</p><br>
                         
                     </div>
                     
                     <!--Section for course mats-->
-                    <div id="course-materials" class ="section">
+                    <div id="course-materials" class ="form-group">
                         <h1 id="course-materials">Course Materials</h1><br>
                         <label class="label" for="course-materials-textbooks">Textbooks
                             <textarea class="field" id="course-materials-textbooks" name="textbooks" style="width: 300px; height: 100px;"></textarea><br>
@@ -208,7 +208,7 @@
                     </div>
 
                     <!--Section for course calendar-->
-                    <div id="course-calendar" class="section">
+                    <div id="course-calendar" class="form-group">
                         <h1>Semester Calendar</h1>
                         <table id="editableGrid" onchange="generateGridCells()">
                             <tr>
@@ -317,7 +317,7 @@
                         </table>
                     </div>
 
-                    <div id="course-grading-scale" class="section">
+                    <div id="course-grading-scale" class="form-group">
                         <h1>Grading Scale</h1>
                         <table class="table1" id="editableGrid" onchange="generateGridCells()">
                             <tr>
@@ -380,9 +380,9 @@
                         </table>
                     </div>
             
-                    <!-- <button name="intent" id="course-submit" value="submit">Submit It!</button> -->
-                    <div class="btn-center">
-                        <button type="submit" id="course-submit" class="btn btn-block">Create my syllabus!</button>
+                    <div class="container text-center" style="margin-bottom: 50px;">
+                        <!-- <button name="intent" id="course-submit" value="submit">Submit It!</button> -->
+                        <button type="submit" id="course-submit" class="btn btn-default">Create my syllabus!</button>
                     </div>
                 </form>
             </div>

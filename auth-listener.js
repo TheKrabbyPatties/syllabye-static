@@ -1,39 +1,47 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
-const firebaseConfig = {
+// Fetch Firebase config from the server
+async function fetchFirebaseConfig() {
+  const response = await fetch('/firebase-config');
+  if (!response.ok) {
+    throw new Error('Failed to fetch Firebase config');
+  }
+  return await response.json();
+}
 
-  apiKey : process.env.API_KEY,
+// const firebaseConfig = {
 
-  authDomain : process.env.AUTH_DOMAIN,
+//   apiKey : process.env.API_KEY,
 
-  databaseURL : process.env.DATABASE_URL, 
+//   authDomain : process.env.AUTH_DOMAIN,
 
-  projectId : process.env.PROJECT_ID,
+//   databaseURL : process.env.DATABASE_URL, 
 
-  storageBucket : process.env.STORAGE_BUCKET, 
+//   projectId : process.env.PROJECT_ID,
 
-  messagingSenderId : process.env.MESSAGING_SENDER_ID,
+//   storageBucket : process.env.STORAGE_BUCKET, 
 
-  appId : process.env.APP_ID
+//   messagingSenderId : process.env.MESSAGING_SENDER_ID,
 
-};
+//   appId : process.env.APP_ID
 
+// };
+// Fetch and initialize Firebase
+fetchFirebaseConfig()
+  .then((config) => {
+    const app = initializeApp(config);  // Initialize Firebase with the config
+    const auth = getAuth(app);  // Get the auth instance with the initialized app
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Make auth reference 
-const auth = getAuth();
-
-onAuthStateChanged(auth, (user) => {
-    if (window.location.pathname === '/auth-testing.html') {
+    // Monitor auth state changes
+    onAuthStateChanged(auth, (user) => {
+      if (window.location.pathname === '/auth-testing.html') {
         const statusDisplay = document.getElementById('authStatus');
-    
+
         if (user) {
           // User is signed in, update UI on dashboard
           if (statusDisplay) {
-            console.log(`Logged in as ${user.email}`)
+            console.log(`Logged in as ${user.email}`);
             statusDisplay.textContent = `Logged in as ${user.email}`;
           }
         } else {
@@ -42,3 +50,30 @@ onAuthStateChanged(auth, (user) => {
         }
       }
     });
+  })
+  .catch((error) => {
+    console.error('Error initializing Firebase:', error);
+  });
+
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+
+// // Make auth reference 
+// const auth = getAuth();
+
+// onAuthStateChanged(auth, (user) => {
+//     if (window.location.pathname === '/auth-testing.html') {
+//         const statusDisplay = document.getElementById('authStatus');
+    
+//         if (user) {
+//           // User is signed in, update UI on dashboard
+//           if (statusDisplay) {
+//             console.log(`Logged in as ${user.email}`)
+//             statusDisplay.textContent = `Logged in as ${user.email}`;
+//           }
+//         } else {
+//           // User is signed out or not available, redirect
+//           window.location.href = "/login.html";
+//         }
+//       }
+//     });
