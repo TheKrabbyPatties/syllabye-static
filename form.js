@@ -1,4 +1,4 @@
-const form = document.querySelector('.form');
+const form = document.querySelector('#form');
 
 // Leaving old code for saving JSON for now
 //form.addEventListener('submit', (e) => {
