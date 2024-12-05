@@ -3,6 +3,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 // Fetch Firebase config from the server
 // async function fetchFirebaseConfig() {
@@ -121,11 +122,48 @@ loginForm.addEventListener('submit', (e) => {
         loginForm.querySelector('.error').innerHTML = "Network error. Please check your connection."
       }
       else{
-        loginForm.querySelector('.error').innerHTML = "Login failed. Please try again or contact us for more information."
+        loginForm.querySelector('.error').innerHTML = "Login failed. Please try again."
       }
     });
       e.currentTarget.reset();
   })
+
+// Sign in with Google
+const googleSignInButton = document.getElementById("googleSignIn");
+
+googleSignInButton.addEventListener("click", (e) => {
+    e.preventDefault(); 
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+
+          console.log("User signed in with Google:", user);
+          alert("Signing in...")
+          window.location.href = "/auth-testing.html";
+          console.log("User signed in.");
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+            console.error("Error signing in with Google:", errorCode, errorMessage);
+
+            // Display error messages
+            if (errorCode === 'auth/popup-closed-by-user') {
+              loginForm.querySelector('.google-error').innerHTML = "Sign-in cancelled. Please try again."
+              // alert("Sign-in cancelled. Please try again.");
+            } else if (errorCode === 'auth/network-request-failed') {
+              loginForm.querySelector('.google-error').innerHTML = "Network error. Please check your connection."
+              // alert("Network error. Please check your connection and try again.");
+            } else {
+              loginForm.querySelector('.google-error').innerHTML = "Google sign-in failed. Please try again."
+              // alert("Google sign-in failed. Please try again.");
+            }
+        });
+});
+
 
   // Reset password
 const reset = document.getElementById("reset");

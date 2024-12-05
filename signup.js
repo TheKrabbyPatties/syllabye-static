@@ -54,7 +54,7 @@ signupForm.addEventListener('submit', (e) => {
       signupForm.querySelector('.error').innerHTML = "Network error. Please check your connection."
     }
     else{
-      signupForm.querySelector('.error').innerHTML = "Sign up failed. Please try again or contact us for more information."
+      signupForm.querySelector('.error').innerHTML = "Sign up failed. Please try again."
     }
   });
     e.currentTarget.reset();
