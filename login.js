@@ -2,7 +2,7 @@
 // const {getAuth, createUserWithEmailAndPassword} = require("firebase/auth");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 // Fetch Firebase config from the server
 // async function fetchFirebaseConfig() {
@@ -115,5 +115,23 @@ loginForm.addEventListener('submit', (e) => {
 
       e.currentTarget.reset();
   })
+
+  // Reset password
+const reset = document.getElementById("reset");
+reset.addEventListener("click", function(e){
+  e.preventDefault()
+  const email = document.getElementById('email').value;
+  
+  sendPasswordResetEmail(auth, email)
+  .then(() => {
+    alert("Password reset email sent!")
+  })
+  . catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error('Error:', errorCode, errorMessage);
+  });
+})
+
 
 
