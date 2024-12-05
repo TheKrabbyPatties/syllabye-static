@@ -41,7 +41,21 @@ signupForm.addEventListener('submit', (e) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.error('Error signing up:', errorCode, errorMessage);
-    // ..
+    if (errorCode == "auth/email-already-in-use"){
+      signupForm.querySelector('.error').innerHTML = "The email is already linked to another account."
+    }
+    else if (errorCode == "auth/weak-password"){
+      signupForm.querySelector('.error').innerHTML = "Please try a stronger password."
+    }
+    else if (errorCode == "auth/invalid-email"){
+      loginForm.querySelector('.error').innerHTML = "Invalid email. Please try again."
+    }
+    else if (errorCode == "auth/network-request-failed"){
+      signupForm.querySelector('.error').innerHTML = "Network error. Please check your connection."
+    }
+    else{
+      signupForm.querySelector('.error').innerHTML = "Sign up failed. Please try again or contact us for more information."
+    }
   });
     e.currentTarget.reset();
 })

@@ -93,3 +93,7 @@ button.signup-btn {
 button.signup-btn:hover {
     background-color: #a30505; 
 }
+
+.error {
+    color: #a30505; 
+}

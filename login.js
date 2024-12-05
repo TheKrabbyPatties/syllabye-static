@@ -111,8 +111,19 @@ loginForm.addEventListener('submit', (e) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.error('Error signing in:', errorCode, errorMessage);
+      if (errorCode == "auth/invalid-login-credentials"){
+        loginForm.querySelector('.error').innerHTML = "Invalid email or password. Please try again."
+      }
+      else if (errorCode == "auth/invalid-email"){
+        loginForm.querySelector('.error').innerHTML = "Invalid email. Please try again."
+      }
+      else if (errorCode == "auth/network-request-failed"){
+        loginForm.querySelector('.error').innerHTML = "Network error. Please check your connection."
+      }
+      else{
+        loginForm.querySelector('.error').innerHTML = "Login failed. Please try again or contact us for more information."
+      }
     });
-
       e.currentTarget.reset();
   })
 
@@ -130,6 +141,9 @@ reset.addEventListener("click", function(e){
     const errorCode = error.code;
     const errorMessage = error.message;
     console.error('Error:', errorCode, errorMessage);
+    if (errorCode == "auth/missing-email"){
+      loginForm.querySelector('.error').innerHTML = "Please enter your email."
+    }
   });
 })
 
