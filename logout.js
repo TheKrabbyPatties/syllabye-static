@@ -81,15 +81,35 @@ const app = initializeApp(firebaseConfig);
 // Make auth reference 
 const auth = getAuth();
 
+// Show progress message
+function showProgressMessage(message) {
+  const progressMessage = document.getElementById("progressMessage");
+  const progressText = document.getElementById("progressText");
+
+  progressText.textContent = message; // Set the message text
+  progressMessage.classList.remove("hidden"); // Show the message container
+}
+
+// Hide progress message
+function hideProgressMessage() {
+  const progressMessage = document.getElementById("progressMessage");
+  progressMessage.classList.add("hidden"); // Hide the message container
+}
+
 // Logout 
 const logout = document.querySelector(".logout-btn");  // Use querySelector with a class selector
 if (logout) {  // Ensure the element exists
     logout.addEventListener("click", (e) => {
         e.preventDefault();
         auth.signOut().then(() => {
-          alert("Logging you out...")
-          window.location.href = "login.html";
-          console.log('user signed out');
+          // alert("Logging you out...")
+          showProgressMessage("Logging you out...");
+          // Delay the redirect
+          setTimeout(() => {
+            hideProgressMessage(); // Hide the message before redirect
+            window.location.href = "login.html"; // Redirect to the login page
+            console.log("User signed out.");
+        }, 5000); // for 5 seconds
         });
     });
 } else {

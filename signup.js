@@ -14,6 +14,20 @@ const firebaseConfig = {
     appId: "1:914730272947:web:cb70b9b64ab37d5d0fc8c6"
   };
 
+// Show progress message
+function showProgressMessage(message) {
+  const progressMessage = document.getElementById("progressMessage");
+  const progressText = document.getElementById("progressText");
+
+  progressText.textContent = message; // Set the message text
+  progressMessage.classList.remove("hidden"); // Show the message container
+}
+
+// Hide progress message
+function hideProgressMessage() {
+  const progressMessage = document.getElementById("progressMessage");
+  progressMessage.classList.add("hidden"); // Hide the message container
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -34,8 +48,14 @@ signupForm.addEventListener('submit', (e) => {
     .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
-    alert("Creating Account...")
-    window.location.href = "auth-testing.html";
+    //alert("Creating Account...")
+    showProgressMessage("Creating Account...");
+    // Delay the redirect
+    setTimeout(() => {
+      hideProgressMessage(); // Hide the message before redirect
+      window.location.href = "/auth-testing.html";
+      console.log("User signed in:", user.email);
+  }, 2000); // for 2 seconds
   })
   .catch((error) => {
     const errorCode = error.code;

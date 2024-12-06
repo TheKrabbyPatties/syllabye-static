@@ -90,6 +90,21 @@ const app = initializeApp(firebaseConfig);
 // Make auth reference 
 const auth = getAuth();
 
+// Show progress message
+function showProgressMessage(message) {
+  const progressMessage = document.getElementById("progressMessage");
+  const progressText = document.getElementById("progressText");
+
+  progressText.textContent = message; // Set the message text
+  progressMessage.classList.remove("hidden"); // Show the message container
+}
+
+// Hide progress message
+function hideProgressMessage() {
+  const progressMessage = document.getElementById("progressMessage");
+  progressMessage.classList.add("hidden"); // Hide the message container
+}
+
 // Sign in existing users
 const loginForm = document.querySelector('.login');
 
@@ -105,8 +120,14 @@ loginForm.addEventListener('submit', (e) => {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      alert("Signing in...")
-      window.location.href = "auth-testing.html";
+      // alert("Signing in...")
+      showProgressMessage("Logging you in...");
+      // Delay the redirect
+      setTimeout(() => {
+        hideProgressMessage(); // Hide the message before redirect
+        window.location.href = "/auth-testing.html";
+        console.log("User signed in:", user.email);
+    }, 2000); // for 2 seconds
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -140,9 +161,14 @@ googleSignInButton.addEventListener("click", (e) => {
           const user = result.user;
 
           console.log("User signed in with Google:", user);
-          alert("Signing in...")
-          window.location.href = "/auth-testing.html";
-          console.log("User signed in.");
+          showProgressMessage("Logging you in...");
+          //alert("Signing in...")
+          // Delay the redirect
+          setTimeout(() => {
+            hideProgressMessage(); // Hide the message before redirect
+            window.location.href = "/auth-testing.html";
+            console.log("User signed in.");
+        }, 2000); // for 2 seconds
         })
         .catch((error) => {
             const errorCode = error.code;
