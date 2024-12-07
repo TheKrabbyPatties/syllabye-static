@@ -104,6 +104,7 @@ if (logout) {  // Ensure the element exists
         auth.signOut().then(() => {
           // alert("Logging you out...")
           showProgressMessage("Logging you out...");
+          window.dispatchEvent(new Event("userLoggedOut")); // Dispatch a custom event to clear local storage
           // Delay the redirect
           setTimeout(() => {
             hideProgressMessage(); // Hide the message before redirect
