@@ -60,6 +60,7 @@ signupForm.addEventListener('submit', (e) => {
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    hideProgressMessage();
     console.error('Error signing up:', errorCode, errorMessage);
     if (errorCode == "auth/email-already-in-use"){
       signupForm.querySelector('.error').innerHTML = "The email is already linked to another account."

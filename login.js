@@ -133,6 +133,7 @@ loginForm.addEventListener('submit', (e) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.error('Error signing in:', errorCode, errorMessage);
+      hideProgressMessage();
       if (errorCode == "auth/invalid-login-credentials"){
         loginForm.querySelector('.error').innerHTML = "Invalid email or password. Please try again."
       }
@@ -175,6 +176,7 @@ googleSignInButton.addEventListener("click", (e) => {
             const errorMessage = error.message;
 
             console.error("Error signing in with Google:", errorCode, errorMessage);
+            hideProgressMessage();
 
             // Display error messages
             if (errorCode === 'auth/popup-closed-by-user') {
