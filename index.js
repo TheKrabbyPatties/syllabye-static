@@ -220,6 +220,10 @@ function generateGridCells() {
 }
 
 window.saveSyllabi = function saveSyllabi() {
+  
+  let syllabiName = prompt("Please enter a name for this syllabus");
+
+
   const db = getDatabase();
 
   const name = document.getElementById('instructor-name').value;
@@ -229,7 +233,7 @@ window.saveSyllabi = function saveSyllabi() {
   const phoneNumber = document.getElementById('instructor-phone-number').value;
   const zoomLink = document.getElementById('instructor-zoom-link').value;
 
-  set(ref(db, 'users/' + name), {
+  set(ref(db, 'users/' + syllabiName), {
     name : name,
     officeHours : officeHours,
     officeLocation : officeLocation,
@@ -247,7 +251,7 @@ window.saveSyllabi = function saveSyllabi() {
     zoomLink
 });
 
-  alert("Data saved to database");
+  alert(syllabiName + " saved to database");
 }
 
 
