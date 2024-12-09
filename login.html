@@ -10,6 +10,9 @@
 
 </head>
 <body>
+    <div id="progressMessage" class="hidden">
+        <p id="progressText"></p>
+    </div>
     <div class="container">
         <div class="box">
             <h2>Welcome back!</h2>
@@ -23,12 +26,17 @@
                     <input type="password" id="password" name="password" required>
                 </div>
                 <p>Need an account? <a href="signup.html">Click here</a></p>
+                <p><a href="#" id ="reset">Forgot password?</a></p>
                 <button type="submit" class="login-btn">Sign in</button>
+                <p class="error"></p>
             </form>
+            <p><u>or</u></p>
+            <button id="googleSignIn" class="google-btn">Sign in with Google</button>
+            <p class="google-error"></p>
         </div>
     </div>
-    <!-- <script type="module" src="https://www.gstatic.com/firebasejs/9.15/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/9.15/firebase-auth.js"></script> -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.15/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.15/firebase-auth.js"></script>
 </body>
 <script type="module" src="login.js"></script>
 <script type="module" src="auth-listener.js"></script>

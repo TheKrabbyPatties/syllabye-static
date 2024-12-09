@@ -26,17 +26,36 @@
         </ul>
     </nav>
 
+    <div id="progressMessage" class="hidden">
+        <p id="progressText"></p>
+    </div>
+
     <div class="profile-container">
         <h1>User Profile</h1>
         <div class="profile-card">
-            <img src="" alt="Profile Picture" class="profile-pic" id="profilePic">
+            <img src="assets/Default_Profile_Picture.png" alt="Profile Picture" class="profile-pic" id="profilePic">
             <div class="profile-info">
                 <h2 id="authStatus">Checking login status...</h2>
                 <p>Bio: <span id="userBio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></p>
-                <button class="edit-btn">Edit Profile</button>
+                <button class="edit-btn" id="editProfileBtn">Edit Profile</button>
             </div>
         </div>
     </div>
+
+<!-- Edit Profile Modal -->
+<div class="modal" id="editProfileModal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Edit Profile</h2>
+        <form id="editProfileForm">
+            <label for="newBio">Update Bio:</label>
+            <textarea id="newBio" rows="4" placeholder="Enter your new bio"></textarea>
+            <label for="newProfilePic">Update Profile Picture:</label>
+            <input type="file" id="newProfilePic" accept="image/*">
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+    </div>
+</div>
 </body>
 <script type="module" src="logout.js"></script>
 <script type="module" src="auth-listener.js"></script>
