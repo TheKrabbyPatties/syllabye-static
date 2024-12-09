@@ -2,6 +2,9 @@
 
 *The hosting on firebase is not fully functional and we were able to get it to deploy, but it currently does not deploy and parts of the website would need to be adjusted to work with firebase instead of azure when it is being set up to replace azure.*
 
+## Firebase Hosting
+This refers to the "hosting" tab in the firebase console to deploy a website through firebase as we would on azure.
+
 ## Step 1 - Install Firebase Tools
 In terminal, cd to the static site folder and type *npm install -g firebase-tools* <br>
 This will download all the necessary tools on your local device to ensure you can use the firebase commands.
