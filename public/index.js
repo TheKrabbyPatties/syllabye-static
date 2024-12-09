@@ -1,6 +1,6 @@
 /*imports for firebase*/
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, set, get} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import { getDatabase, ref, set, get} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
 // //this is necessary for the .env file to work 
 // require('dotenv').config();
@@ -201,6 +201,37 @@ function generateGridCells() {
         gridCells.push(`<p>${cell.innerText}</p>`);
     });
     return gridCells.join('');
+}
+
+window.saveSyllabi = function saveSyllabi() {
+  const db = getDatabase(app);
+
+  const name = document.getElementById('instructor-name').value;
+  const officeHours = document.getElementById('instructor-office-hours').value;
+  const officeLocation = document.getElementById('instructor-office-location').value;
+  const email = document.getElementById('instructor-email').value;
+  const phoneNumber = document.getElementById('instructor-phone-number').value;
+  const zoomLink = document.getElementById('instructor-zoom-link').value;
+
+  set(ref(db, 'users/' + name), {
+    name : name,
+    officeHours : officeHours,
+    officeLocation : officeLocation,
+    email : email,
+    phoneNumber : phoneNumber,
+    zoomLink : zoomLink
+});
+
+  console.log({
+    name,
+    officeHours,
+    officeLocation,
+    email,
+    phoneNumber,
+    zoomLink
+});
+
+  alert("Data saved to database");
 }
 
 
