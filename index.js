@@ -206,6 +206,37 @@ function generateGridCells() {
     return gridCells.join('');
 }
 
+window.saveSyllabi = function saveSyllabi() {
+  const db = getDatabase(app);
+
+  const name = document.getElementById('instructor-name').value;
+  const officeHours = document.getElementById('instructor-office-hours').value;
+  const officeLocation = document.getElementById('instructor-office-location').value;
+  const email = document.getElementById('instructor-email').value;
+  const phoneNumber = document.getElementById('instructor-phone-number').value;
+  const zoomLink = document.getElementById('instructor-zoom-link').value;
+
+  set(ref(db, 'users/' + name), {
+    name : name,
+    officeHours : officeHours,
+    officeLocation : officeLocation,
+    email : email,
+    phoneNumber : phoneNumber,
+    zoomLink : zoomLink
+});
+
+  console.log({
+    name,
+    officeHours,
+    officeLocation,
+    email,
+    phoneNumber,
+    zoomLink
+});
+
+  alert("Data saved to database");
+}
+
 
 // // Turns the syllabus into JSON and sends it to the server-side
 // document.addEventListener("DOMContentLoaded", () => {
