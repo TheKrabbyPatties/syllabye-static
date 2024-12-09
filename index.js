@@ -220,7 +220,7 @@ function generateGridCells() {
 }
 
 window.saveSyllabi = function saveSyllabi() {
-  const db = getDatabase(app);
+  const db = getDatabase();
 
   const name = document.getElementById('instructor-name').value;
   const officeHours = document.getElementById('instructor-office-hours').value;
