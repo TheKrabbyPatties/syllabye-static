@@ -56,7 +56,11 @@ import { getAuth, onAuthStateChanged, sendEmailVerification, signOut } from "htt
 //     console.error('Error initializing Firebase:', error);
 //   });
 
-
+// NOTE: For the user profile functionality, local storage is used to temporarily save user profile data, 
+// including images, as Firebase’s free tier does not support storing pictures.  This allows the profile 
+// functionality to be fully demonstrated and tested. I’ve added a code framework to make it easier to 
+// switch to permanent storage later (hopefully). Note that local storage is a temporary solution and should 
+// be replaced for production use.
 
 // Firebase configuration
 const firebaseConfig = {
