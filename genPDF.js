@@ -15,21 +15,34 @@ window.onload = function() {
 
 function Export2PDF(element, filename = 'document') {
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+    const doc = new jsPDF({
+        orientation: 'portrait',
+        unit: 'pt',
+        format: 'a4'
+    });
 
-    // Get the HTML content
-    var html = document.getElementById(element);
+    const targetElement = document.getElementById(element);
+    if (!targetElement) {
+        console.error(`Element with id '${element}' not found.`);
+        return;
+    }
 
-    // Capture the content of the element as HTML text
-    doc.html(html, {
-        callback: function(doc) {
-            // Save the PDF with the filename
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const contentWidth = targetElement.offsetWidth;
+
+    const scaleFactor = contentWidth > pageWidth ? pageWidth / contentWidth : 1;
+
+    doc.html(targetElement, {
+        callback: function (doc) {
             doc.save(filename + '.pdf');
         },
-        x: 10, // Set the X coordinate 
-        y: 10, // Set the Y coordinate 
+        x: 20, // Add margins
+        y: 20,
         html2canvas: {
-            scale: 0.5 // Adjust scale to fit the content
+            scale: scaleFactor,
+            useCORS: true // Ensure external resources load correctly
         }
     });
 }
+
+
