@@ -12,7 +12,7 @@ const firebaseConfig = {
   appId: "1:914730272947:web:cb70b9b64ab37d5d0fc8c6"
 };
 
-const app = initializeApp(FirebaseConfig);
+const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 // //this is necessary for the .env file to work 
