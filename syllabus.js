@@ -31,10 +31,6 @@ if (formObject) {
     const calendarData = parsedCalendarData["course-calendar"];
     const calendarTableBody = document.querySelector("#calendarTable tbody");
 
-    console.log(parsedCalendarData);
-    console.log(calendarData);
-    console.log(calendarTableBody);
-
     // Generate rows from calendar data
     calendarData.forEach(entry => {
         const row = document.createElement("tr");
@@ -54,10 +50,6 @@ if (formObject) {
 
     const gradeData = parsedGradeData["course-grading-scale"];
     const gradeTableBody = document.querySelector("#gradeTable tbody");
-
-    console.log(parsedGradeData);
-    console.log(gradeData);
-    console.log(gradeTableBody);
     
     // Generate rows from grade data
     gradeData.forEach(entry => {
