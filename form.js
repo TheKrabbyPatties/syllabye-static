@@ -25,7 +25,7 @@ form.addEventListener('submit', (e) => {
 
   const formData = new FormData(e.currentTarget);
   const entries = [...formData.entries()];
-
+  console.log(entries);
   // Create the sections
   const sections = {
       "instructor-info": {},
@@ -83,11 +83,11 @@ form.addEventListener('submit', (e) => {
       } else {
           // Find the input element using the key (name)
           const inputElement = e.currentTarget.querySelector(`[name="${key}"]`);
-
+          
           if (inputElement) {
               
-              const sectionId = inputElement.closest('.section')?.id; // Finds the proper section for each value
-
+              const sectionId = inputElement.closest('.form-group')?.id; // Finds the proper section for each value
+              
               if (sections[sectionId]) { // Adds the values to the proper sections
                   sections[sectionId][key] = value;
               } else {

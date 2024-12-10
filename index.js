@@ -1,6 +1,19 @@
 /*imports for firebase*/
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, set, get} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import { getDatabase, ref, set, get} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCQthMiRyG7rs8x-bX-uaOgpOCwGxwDogk",
+  authDomain: "syllabye-7f9b8.firebaseapp.com",
+  databaseURL: "https://syllabye-7f9b8-default-rtdb.firebaseio.com",
+  projectId: "syllabye-7f9b8",
+  storageBucket: "syllabye-7f9b8.firebasestorage.app",
+  messagingSenderId: "914730272947",
+  appId: "1:914730272947:web:cb70b9b64ab37d5d0fc8c6"
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
 // //this is necessary for the .env file to work 
 // require('dotenv').config();
@@ -204,6 +217,41 @@ function generateGridCells() {
         gridCells.push(`<p>${cell.innerText}</p>`);
     });
     return gridCells.join('');
+}
+
+window.saveSyllabi = function saveSyllabi() {
+  
+  let syllabiName = prompt("Please enter a name for this syllabus");
+
+
+  const db = getDatabase();
+
+  const name = document.getElementById('instructor-name').value;
+  const officeHours = document.getElementById('instructor-office-hours').value;
+  const officeLocation = document.getElementById('instructor-office-location').value;
+  const email = document.getElementById('instructor-email').value;
+  const phoneNumber = document.getElementById('instructor-phone-number').value;
+  const zoomLink = document.getElementById('instructor-zoom-link').value;
+
+  set(ref(db, 'users/' + syllabiName), {
+    name : name,
+    officeHours : officeHours,
+    officeLocation : officeLocation,
+    email : email,
+    phoneNumber : phoneNumber,
+    zoomLink : zoomLink
+});
+
+  console.log({
+    name,
+    officeHours,
+    officeLocation,
+    email,
+    phoneNumber,
+    zoomLink
+});
+
+  alert(syllabiName + " saved to database");
 }
 
 
